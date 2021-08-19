@@ -1,0 +1,128 @@
+:root{
+    --red-primary-color:#e50914;
+}
+body{
+    background-color: #000;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: .8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+/**HEADER STYLES**/
+.header_container{
+    background-color: var(--red-primary-color);
+    text-align: center;
+    padding: 15px 0 0 0;
+}
+.header_home{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header_home h2{
+    margin: 0;
+    font-family: 'Permanent Marker', cursive;    
+    font-size: 1.8rem;
+}
+.header_home a{
+    cursor: pointer;
+}
+.header_home img{
+    width: 30px;
+}
+
+.header_links{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    padding: 2px 0;
+    margin-top: 12px;
+}
+.header_links a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+
+
+
+/*ERROR(dfault) MESSAGE STYLES*/
+.err-dfault{
+    position: relative;
+}
+.err-dfault img{
+    width: 100%;
+    height: calc(100vh - 103px);
+}
+.err-dfault section{
+    position: absolute;
+    top: 0%;
+    color: #d00;
+    font-size: 1.2rem;
+    font-weight: 700; 
+    text-align: center;   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
