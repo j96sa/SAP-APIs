@@ -15,7 +15,7 @@ export function H_Section_Film_Com() {
     `;
 };
 
-export function H_Section_Film() {
+/*export function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
 
     Fetch_Request({
@@ -39,9 +39,9 @@ export function H_Section_Film() {
             document.querySelector(".film-img").appendChild($section);
         }        
     });
-};
+};*/
 ///OKKKKKKKK  OKKOKKK
-/*export function H_Section_Film() {
+export function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
 
     Fetch_Request({
@@ -66,6 +66,6 @@ export function H_Section_Film() {
             document.querySelector(".film-img").appendChild($section);
         }                
     });
-};*/
+};
 
 
