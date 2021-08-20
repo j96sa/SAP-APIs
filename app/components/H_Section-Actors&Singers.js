@@ -1,5 +1,3 @@
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-
 export function H_SectionActorsSingers_Com() {
     return `
         <article id="article-actors" class="article-actors home-article">

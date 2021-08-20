@@ -19,6 +19,32 @@ export function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
 
     Fetch_Request({
+        url:`https://jsonplaceholder.typicode.com/photos`,
+        res:(json)=>{            
+            let arr = [];
+
+            for(let i = 4; i > 0; i--){                
+                arr.push(json[i]);
+            };
+                        
+            arr.forEach(e=>{
+                let img = document.createElement("img");
+                img.src = e.url;
+                img.alt = e.title;
+                $fragment.appendChild(img);
+            });
+
+            let $section = document.createElement("section");
+            $section.appendChild($fragment);
+            document.querySelector(".film-img").appendChild($section);
+        }        
+    });
+};
+///OKKKKKKKK  OKKOKKK
+/*export function H_Section_Film() {
+    const $fragment = document.createDocumentFragment();
+
+    Fetch_Request({
         url:`${media.MediaPopular}`,
         res:(json)=>{
             console.log(json);            
@@ -40,5 +66,6 @@ export function H_Section_Film() {
             document.querySelector(".film-img").appendChild($section);
         }                
     });
-};
+};*/
+
 
