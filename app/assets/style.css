@@ -1,5 +1,6 @@
 :root{
     --red-primary-color:#e50914;
+    --yellow-primary-color:#fd0;
 }
 body{
     background-color: #000;
@@ -13,11 +14,11 @@ body{
 /*GENERAL STYLES*/
 .subtitle{
     font-size: 1rem; 
-    color: #fd0;
+    color: var(--yellow-primary-color);
     margin-bottom: 30px;  
 }
 .subtitle span{
-    color: #d00;
+    color:var(--red-primary-color);
 }
 
 
@@ -58,7 +59,10 @@ body{
 .header_links a{
     text-decoration: none;
     color: inherit;
-    cursor: pointer;    
+    cursor: pointer;       
+}
+.header_links a:hover{
+    color: var(--yellow-primary-color);
 }
 
 
@@ -196,7 +200,7 @@ body{
 
 
 /*RESPONSIVE HOME 1200px BREAK*/
-@media only screen and (min-width:800px){
+@media only screen and (min-width:1200px){
     /*HEADER*/
     .header_container{
         padding-top:0 ;
@@ -212,8 +216,48 @@ body{
         width: 40%;        
     }
     .header_links a{
-        font-size: 1.2rem;
+        font-size: 1.2rem;        
     }
+
+
+    /*HOME*/
+    /*film*/
+    .article-film .film-text h1{
+                
+    }
+    .film-text section{
+        width: 80%;
+        margin: auto;
+    }
+    .home-article{
+        display: flex;        
+        padding: 0;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .film-text section h2{        
+        margin-top: 150px;
+        line-height: 1.5;
+    }
+    /*actor*/
+    .article-actors section{
+        order: 1;
+    }
+    .article-actors .subtitle{
+        margin-top: 220px;
+        line-height: 1.5;
+    }
+    
+
+
+
+
+
+
+
+
+
 
 }
 
