@@ -10,7 +10,7 @@ export function H_Section_Film_Com() {
                     <h2 class="subtitle">On this website you can find information among other things, about <span>movies</span> and <span>series</span></h2>
                 </section>                
             </div>
-            <div class="film-img"></div>
+            <div class="film-img home-img"></div>
         </article>        
     `;
 };
@@ -21,7 +21,7 @@ export function H_Section_Film() {
     Fetch_Request({
         url:`${media.MediaPopular}`,
         res:(json)=>{
-            //console.log(json);            
+            console.log(json);            
             let arr = [];
 
             for(let i = 4; i > 0; i--){                

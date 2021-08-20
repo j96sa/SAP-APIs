@@ -13,11 +13,13 @@ body{
 /*GENERAL STYLES*/
 .subtitle{
     font-size: 1rem; 
-    color: #fd0;  
+    color: #fd0;
+    margin-bottom: 30px;  
 }
 .subtitle span{
     color: #d00;
 }
+
 
 
 
@@ -39,7 +41,7 @@ body{
     font-size: 1.8rem;
 }
 .header_home a{
-    cursor: pointer;
+    cursor: pointer;    
 }
 .header_home img{
     width: 30px;
@@ -56,8 +58,9 @@ body{
 .header_links a{
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
+    cursor: pointer;    
 }
+
 
 
 
@@ -82,33 +85,33 @@ body{
 
 
 
-/*HOME-COMPONENT-VIDEO*/
-.article-film{
+
+/*home-components general styles*/
+.home-article{
     text-align: center;
     padding: 0 5px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
-
-.article-film .film-text h1{
-    font-size: 1.5rem;
-}
-
-.article-film .film-img section{
+.home-article .home-img section{
     display: grid;
     grid-template-columns: 1fr;    
     text-align: center; 
-    gap: 10px 0;   
+    gap: 10px 0;
 }
-.film-img img{
+.home-article .home-img img{
     width: 88%;   
     margin: auto;
     object-fit: cover;
 }
 
-
-
+/*HOME-COMPONENT-VIDEO*/
+.article-film .film-text h1{
+    font-size: 1.5rem;
+}
 
 /*HOME-COMPONENT-Actors&Singers*/
+
+/*HOME-COMPONENT-ART*/
 
 
 
