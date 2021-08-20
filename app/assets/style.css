@@ -1,5 +1,6 @@
 :root{
     --red-primary-color:#e50914;
+    --yellow-primary-color:#fd0;
 }
 body{
     background-color: #000;
@@ -8,12 +9,26 @@ body{
     margin: 0;
     font-size: .8rem;
     font-family: 'Montserrat', sans-serif;
+    user-select:none;
+}
+
+/*GENERAL STYLES*/
+.subtitle{
+    font-size: 1rem; 
+    color: var(--yellow-primary-color);
+    margin-bottom: 30px;  
+}
+.subtitle span{
+    color:var(--red-primary-color);
+}
+.home-end-message{
+    text-align: center;
 }
 
 
 
 
-/**HEADER STYLES**/
+/**HEADER**/
 .header_container{
     background-color: var(--red-primary-color);
     text-align: center;
@@ -30,29 +45,34 @@ body{
     font-size: 1.8rem;
 }
 .header_home a{
-    cursor: pointer;
+    cursor: pointer;    
 }
 .header_home img{
     width: 30px;
 }
 
 .header_links{
+    box-sizing: border-box;
     display: flex;
     width:100%;
     justify-content: space-between;
-    padding: 2px 0;
+    padding: 2px 4px;
     margin-top: 12px;
 }
 .header_links a{
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
+    cursor: pointer;       
+}
+.header_links a:hover{
+    color: var(--yellow-primary-color);
 }
 
 
 
 
-/*ERROR(dfault) MESSAGE STYLES*/
+
+/*ERROR(dfault) MESSAGE*/
 .err-dfault{
     position: relative;
 }
@@ -70,6 +90,197 @@ body{
 }
 
 
+
+
+
+/*home-components general styles*/
+.home-article{
+    text-align: center;
+    padding: 0 5px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transition: .35s ease-in;
+}
+.home-article.active{
+    opacity: 1;
+}
+.home-article .home-img{
+    overflow: hidden;
+}
+.home-article .home-img section{
+    display: grid;
+    grid-template-columns: 1fr;    
+    text-align: center; 
+    gap: 10px 0;    
+    transform: translatex(120%);    
+    transition: .7s ease-out;
+}
+.home-article .home-img img{
+    width: 95%;   
+    margin: auto;
+    object-fit: cover;    
+}
+.home-article.active .home-img section{
+    transform: translateX(0);
+}
+
+/*HOME-COMPONENT-VIDEO*/
+.article-film .film-text h1{
+    font-size: 1.5rem;
+}
+/*HOME-COMPONENT-Actors&Singers*/
+/*HOME-COMPONENT-ART*/
+
+
+
+
+
+/*RESPONSIVE HOME 530px BREAK*/
+@media only screen and (min-width:530px){
+    /*GENERALS*/
+    .subtitle{
+        font-size: 1.2rem;
+    }
+    
+    /*HEADER*/
+    .header_container{
+        padding: 15px 12px 0 12px;
+    }
+    .header_home{
+        justify-content: space-between;        
+    }
+    .header_home h2{
+        font-size: 2rem;
+    }
+    .header_home img{
+        width: 35px;
+    }
+
+    .header_links a{
+        font-size: 1rem;
+    }
+
+    /*HOME*/
+    .article-film .film-text h1{
+        font-size: 1.8rem;
+    }
+    .home-article .home-img section{
+        grid-template-columns: 1fr 1fr;        
+    }
+}
+
+
+/*RESPONSIVE HOME 800px BREAK*/
+@media only screen and (min-width:800px){
+    /*GENERALS*/
+    .subtitle{
+        font-size: 1.8rem;
+    }
+    
+    /*HEADER*/
+    .header_container{
+        padding: 15px 16px 0 16px;
+    }    
+    .header_home h2{
+        font-size: 2.5rem;
+    }
+    .header_home img{
+        width: 45px;
+    }
+
+    .header_links a{
+        font-size: 1.4rem;
+    }
+
+    /*HOME*/
+    .article-film .film-text h1{
+        font-size: 2.8rem;
+    }
+    .home-article .home-img section{
+        grid-template-columns: 1fr 1fr;        
+    }
+}
+
+
+/*RESPONSIVE HOME 1200px BREAK*/
+@media only screen and (min-width:1200px){
+    /*HEADER*/
+    .header_container{
+        padding-top:0 ;
+    }
+    .header_home h2{
+        font-size: 2rem;
+    }
+    .header_home img{
+        width: 35px;
+    }
+    .header_links{
+        margin: 0 auto;        
+        width: 40%; 
+        padding: 0 4px 2px 4px;       
+    }
+    .header_links a{
+        font-size: 1.2rem;        
+    }
+
+
+    /*HOME*/
+    .home-article .home-img section{        
+        grid-template-columns: 200px 200px;
+    }
+    /*film*/
+    .article-film .film-text h1{
+        text-align: left;
+        margin: 0;
+    }
+    .home-img{
+        width: 50%;               
+    }
+    .film-img section{
+        margin-left: 100px;
+    }        
+    .home-article{
+        display: flex;        
+        padding: 0;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .article-film .subtitle{        
+        margin: auto;
+        margin-top: 100px;
+        line-height: 1.5;
+        width: 70%;
+    }
+    /*actor*/
+    .article-actors{
+        width: 85%;
+        margin-top:0px;
+    }
+    .article-actors section{
+        order: 1;
+    }
+    .article-actors .subtitle{
+        margin: auto;
+        margin-top: 150px;
+        width: 70%;
+        line-height: 1.5;
+    }
+    /*art*/
+    .article-art{
+        margin-top:0px;
+        width: 85%;
+    }
+    .article-art .subtitle{
+        margin: auto;
+        margin-top: 170px;
+        width: 70%;
+        line-height: 1.5;
+    }
+    .home-end-message{
+        margin-top: 80px;
+    }
+}
 
 
 

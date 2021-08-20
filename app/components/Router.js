@@ -14,15 +14,15 @@ export function  Router() {
         break;
 
         case "#/songs":
-            d.getElementById("main").innerHTML = "";
+            d.getElementById("main").innerHTML = "songs";
         break;
 
         case "#/films":
-            d.getElementById("main").innerHTML = "";
+            d.getElementById("main").innerHTML = "films";
         break;
     
         case "#/art":
-            d.getElementById("main").innerHTML = "";
+            d.getElementById("main").innerHTML = "art";
         break;
     }
 };
