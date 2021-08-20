@@ -10,10 +10,19 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+/*GENERAL STYLES*/
+.subtitle{
+    font-size: 1rem; 
+    color: #fd0;  
+}
+.subtitle span{
+    color: #d00;
+}
 
 
 
-/**HEADER STYLES**/
+
+/**HEADER**/
 .header_container{
     background-color: var(--red-primary-color);
     text-align: center;
@@ -37,10 +46,11 @@ body{
 }
 
 .header_links{
+    box-sizing: border-box;
     display: flex;
     width:100%;
     justify-content: space-between;
-    padding: 2px 0;
+    padding: 2px 4px;
     margin-top: 12px;
 }
 .header_links a{
@@ -52,7 +62,7 @@ body{
 
 
 
-/*ERROR(dfault) MESSAGE STYLES*/
+/*ERROR(dfault) MESSAGE*/
 .err-dfault{
     position: relative;
 }
@@ -68,6 +78,37 @@ body{
     font-weight: 700; 
     text-align: center;   
 }
+
+
+
+
+/*HOME-COMPONENT-VIDEO*/
+.article-film{
+    text-align: center;
+    padding: 0 5px;
+    margin-bottom: 100px;
+}
+
+.article-film .film-text h1{
+    font-size: 1.5rem;
+}
+
+.article-film .film-img section{
+    display: grid;
+    grid-template-columns: 1fr;    
+    text-align: center; 
+    gap: 10px 0;   
+}
+.film-img img{
+    width: 88%;   
+    margin: auto;
+    object-fit: cover;
+}
+
+
+
+
+/*HOME-COMPONENT-Actors&Singers*/
 
 
 
