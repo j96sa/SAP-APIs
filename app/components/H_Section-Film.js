@@ -6,7 +6,7 @@ export function H_Section_Film_Com() {
         <article id="article-film" class="article-film home-article">
             <div class="film-text">
                 <section>
-                    <h1>Welcome To WEB NAME</h1>
+                    <h1>Welcome to Search and Find</h1>
                     <h2 class="subtitle">On this website you can find information among other things, about <span>movies</span> and <span>series</span></h2>
                 </section>                
             </div>

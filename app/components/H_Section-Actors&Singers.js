@@ -10,7 +10,7 @@ export function H_SectionActorsSingers_Com() {
 export function H_SectionActorsSingers(){
     const d = document,
     $fragment = d.createDocumentFragment(),
-    IMG = ["./app/assets/actor.jpg","./app/assets/actor1.jpg","./app/assets/actor2.jpg","./app/assets/actor3.jpg"];
+    IMG = ["./app/assets/actor.jpg","./app/assets/actor1.jpg","./app/assets/actor3.jpg","./app/assets/actor2.jpg"];
     
     IMG.forEach(e=>{
       let img = d.createElement("img");

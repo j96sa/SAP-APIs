@@ -20,7 +20,9 @@ body{
 .subtitle span{
     color:var(--red-primary-color);
 }
-
+.home-end-message{
+    text-align: center;
+}
 
 
 
@@ -213,7 +215,8 @@ body{
     }
     .header_links{
         margin: 0 auto;        
-        width: 40%;        
+        width: 40%; 
+        padding: 0 4px 2px 4px;       
     }
     .header_links a{
         font-size: 1.2rem;        
@@ -221,14 +224,20 @@ body{
 
 
     /*HOME*/
+    .home-article .home-img section{        
+        grid-template-columns: 200px 200px;
+    }
     /*film*/
     .article-film .film-text h1{
-                
+        text-align: left;
+        margin: 0;
     }
-    .film-text section{
-        width: 80%;
-        margin: auto;
+    .home-img{
+        width: 50%;               
     }
+    .film-img section{
+        margin-left: 100px;
+    }        
     .home-article{
         display: flex;        
         padding: 0;
@@ -236,29 +245,40 @@ body{
         margin: 0 auto;
         margin-top: 50px;
     }
-    .film-text section h2{        
-        margin-top: 150px;
+    .article-film .subtitle{        
+        margin: auto;
+        margin-top: 100px;
         line-height: 1.5;
+        width: 70%;
     }
     /*actor*/
+    .article-actors{
+        width: 85%;
+        margin-top:0px;
+    }
     .article-actors section{
         order: 1;
     }
     .article-actors .subtitle{
-        margin-top: 220px;
+        margin: auto;
+        margin-top: 150px;
+        width: 70%;
         line-height: 1.5;
     }
-    
-
-
-
-
-
-
-
-
-
-
+    /*art*/
+    .article-art{
+        margin-top:0px;
+        width: 85%;
+    }
+    .article-art .subtitle{
+        margin: auto;
+        margin-top: 170px;
+        width: 70%;
+        line-height: 1.5;
+    }
+    .home-end-message{
+        margin-top: 80px;
+    }
 }
 
 
