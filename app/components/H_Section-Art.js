@@ -11,7 +11,7 @@ export function H_Section_Art_Com(){
 export function H_Section_Art(){
     const d = document,
     $fragment = d.createDocumentFragment(),
-    arr = ["./App/assets/art.jpg","./App/assets/art2.jpg","./App/assets/art3.jpg","./App/assets/art4.jpg"];
+    arr = ["./app/assets/art.jpg","./app/assets/art2.jpg","./app/assets/art3.jpg","./app/assets/art4.jpg"];
 
     arr.forEach(e=>{
         let img = d.createElement("img");
