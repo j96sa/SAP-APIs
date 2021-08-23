@@ -1,5 +1,6 @@
 import {Fetch_Request} from "../helpers/Fetch_Request.js";
 import media from "../helpers/API_movies.js" ;
+import Loader from "./Loader.js";
 
 export function H_Section_Film_Com() {
     return `
@@ -15,36 +16,42 @@ export function H_Section_Film_Com() {
     `;
 };
 
-/*export function H_Section_Film() {
+/*export async function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
-
-    Fetch_Request({
-        url:`https://jsonplaceholder.typicode.com/photos`,
-        res:(json)=>{            
-            let arr = [];
-
-            for(let i = 4; i > 0; i--){                
-                arr.push(json[i]);
-            };
-                        
-            arr.forEach(e=>{
-                let img = document.createElement("img");
-                img.src = e.url;
-                img.alt = e.title;
-                $fragment.appendChild(img);
-            });
-
-            let $section = document.createElement("section");
-            $section.appendChild($fragment);
-            document.querySelector(".film-img").appendChild($section);
-        }        
-    });
+    document.querySelector(".article-film").innerHTML += Loader();
+    
+    setTimeout(() => {
+        Fetch_Request({
+            url:`https://jsonplaceholder.typicode.com/photos`,
+            res:(json)=>{            
+                let arr = [];
+    
+                for(let i = 4; i > 0; i--){                
+                    arr.push(json[i]);
+                };
+                            
+                arr.forEach(e=>{
+                    let img = document.createElement("img");
+                    img.src = e.url;
+                    img.alt = e.title;
+                    $fragment.appendChild(img);
+                });
+    
+                let $section = document.createElement("section");
+                $section.appendChild($fragment);
+                document.querySelector(".film-img").appendChild($section);
+            }        
+        });
+        document.querySelector(".loader-section").style.display = "none";
+    }, 3000);    
 };*/
-///OKKKKKKKK  OKKOKKK
-export function H_Section_Film() {
-    const $fragment = document.createDocumentFragment();
 
-    Fetch_Request({
+//OKKKKKKKK  OKKOKKK
+export async function H_Section_Film() {
+    const $fragment = document.createDocumentFragment();
+    document.querySelector(".article-film").innerHTML += Loader();
+
+    await Fetch_Request({
         url:`${media.MediaPopular}`,
         res:(json)=>{
             //console.log(json);            
@@ -64,8 +71,10 @@ export function H_Section_Film() {
             let $section = document.createElement("section");
             $section.appendChild($fragment);
             document.querySelector(".film-img").appendChild($section);
-        }                
+        }  
     });
+
+    document.querySelector(".loader-section").style.display = "none";              
 };
 
 
