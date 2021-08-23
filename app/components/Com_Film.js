@@ -1,13 +1,17 @@
 import { F_ComInput } from "./F_ComInput.js";
+import { F_Section_Film } from "./F_Section-Film.js";
 
 export function Com_Film(){
-    document.getElementById("main").innerHTML = F_ComInput();
-
-    
-
-    
     const d = document,
-    $switchButton = d.getElementById("switch-button"),
+    $main = document.getElementById("main");
+
+
+    $main.innerHTML = F_ComInput();
+    F_Section_Film();
+
+
+    
+    const $switchButton = d.getElementById("switch-button"),
     $switchContainer = d.querySelector(".switch-container"),
     $input = d.querySelector(".input-section input");
 

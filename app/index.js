@@ -8,3 +8,10 @@ document.addEventListener("DOMContentLoaded",e=>{
 window.addEventListener("hashchange",e=>{
     App();
 })
+
+
+
+
+let x = Math.floor(Math.random()*1000)
+
+console.log(x);

@@ -326,6 +326,7 @@ body{
 
 
 /*****SECCION  MOVIES, SERIES & ACTORS*****/
+
 /*INPUT*/
 .film-input div{
     display: flex;
@@ -391,6 +392,60 @@ body{
         border-radius: 8px;
         padding: 0 4px;
     }
+}
+
+
+
+
+
+/*FILM-SECCION-HOME*/
+.film-content{
+    width: 80%;
+    margin: auto;
+}
+.film-content h2{
+    text-align: center;
+    font-size: 1.8rem;
+}
+.film-content .film-card{
+    text-align: center;
+    margin-bottom: 80px;
+}
+.film-content .film-card img{
+    transition: .35s;
+    width: 100%;
+    object-fit:cover;
+}
+.film-content .film-card figure{
+    margin: 0;
+}
+.film-content .film-card .card-text div{
+    display: flex;
+    width: 88%;
+    margin: auto;
+    justify-content: space-between;
+    color: var(--yellow-primary-color);
+}
+.film-content .film-card .card-text span{
+    color:var(--red-primary-color);
+}
+.film-content .film-card p{
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.film-content .film-card h3{
+    margin-top: 8px;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+/*EFECT*/
+.film-card figure{
+    background: lemonchiffon;
+}
+.film-card img:hover{    
+    transform: translate(4%,-2%)
 }
 
 

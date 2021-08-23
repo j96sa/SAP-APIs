@@ -11,6 +11,8 @@ export function F_ComInput(){
                 </section>
             </div>
         </article>
-        <article id="film-content" class=""></article>
+        <article id="film-content" class="film-content">
+            <h2 class="subtitle">Pupular Films</h2>
+        </article>
     `;
 }
