@@ -346,6 +346,9 @@ body{
     border: none;
     outline: none;
 }
+.input-section input::placeholder{
+    color: #000c;
+}
 .input-section button{
     border: none;
     padding: 0;    
@@ -364,6 +367,30 @@ body{
     font-size: .8rem;
     font-weight: 700;
     padding: 4px 0;
+}
+/*RESPONSIVE DEL INPUT SEARCH BREAK 1200px*/
+@media only screen and (min-width:750px) {
+    .film-input div{
+        flex-direction: row;
+        height: 34px;
+        justify-content: flex-end;
+        margin: 15px 15px 0 0;
+    }
+    .input-section{
+        order: 1;
+        width: 30%;
+        height: 100%;  
+        margin-left: 10px;
+        border-radius: 8px;      
+    }
+    .input-section input::placeholder{
+        font-size: 1rem;
+    }
+    .film-input .switch-container button{
+        height: 100%;
+        border-radius: 8px;
+        padding: 0 4px;
+    }
 }
 
 
