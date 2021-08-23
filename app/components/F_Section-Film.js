@@ -6,9 +6,7 @@ import { CardFilm } from "./CardFilm.js";
 export async function F_Section_Film(){
     await Fetch_Request({
         url:api.MediaPopular,
-        res:(res)=>{
-            console.log(res);
-
+        res:(res)=>{            
             let html = "";
 
             res.items.forEach(e=>html += CardFilm(e));
