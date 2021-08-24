@@ -215,8 +215,7 @@ body{
 @media only screen and (min-width:1200px){
     /*LOADER*/
     .loader-section{
-        margin: auto;
-        margin-right: 280px;
+        margin: auto;        
     }
     .loader-section img{
         width: 110px;
@@ -369,7 +368,7 @@ body{
     font-weight: 700;
     padding: 4px 0;
 }
-/*RESPONSIVE DEL INPUT SEARCH BREAK 1200px*/
+/*RESPONSIVE DEL INPUT SEARCH BREAK 750px*/
 @media only screen and (min-width:750px) {
     .film-input div{
         flex-direction: row;
@@ -403,7 +402,7 @@ body{
     width: 80%;
     margin: auto;
 }
-.film-content h2{
+.film_card-content h2{
     text-align: center;
     font-size: 1.8rem;
 }
@@ -411,13 +410,14 @@ body{
     text-align: center;
     margin-bottom: 80px;
 }
+.film-content .film-card figure{
+    margin: 0;
+}
 .film-content .film-card img{
     transition: .35s;
     width: 100%;
     object-fit:cover;
-}
-.film-content .film-card figure{
-    margin: 0;
+    cursor: pointer;
 }
 .film-content .film-card .card-text div{
     display: flex;
@@ -446,6 +446,34 @@ body{
 }
 .film-card img:hover{    
     transform: translate(4%,-2%)
+}
+/*RESPONSIVE DEL FILM-SECTION HOME BREAK(750px)*/
+@media only screen and (min-width:750px) {
+    .film-content{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(50px, 200px));
+        gap:0 30px;    
+        justify-content: center;
+    }
+}
+/*RESPONSIVE DEL FILM-SECTION HOME BREAK(1200px)*/
+@media only screen and (min-width:1200px) {
+    .loader-section{
+        margin: auto;
+    }
+    .film_card-content h2{
+        margin-top: 80px;
+        font-size: 2.5rem;        
+    }    
+    .film-content{
+        margin-top: 80px;
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(50px, 250px));
+        gap:0 50px;    
+        justify-content: center;
+    }
 }
 
 
