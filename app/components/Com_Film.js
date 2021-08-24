@@ -11,6 +11,13 @@ export function Com_Film(){
     F_FilmSearch();
 
     
+
+
+    d.querySelectorAll(".film_card-content figure").forEach(e=>{
+        e.style.background = `#${Math.floor(Math.random()*1000)}`;
+    });
+
+
     const $switchButton = d.getElementById("switch-button"),
     $switchContainer = d.querySelector(".switch-container"),
     $input = d.querySelector(".input-section input");

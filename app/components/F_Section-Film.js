@@ -1,7 +1,7 @@
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
 import api from "../helpers/API_movies.js";
-import { CardFilm } from "./CardFilm.js";
-import {LoaderElement} from "./Loader.js"
+import { CardFilm, CardFilmSearch } from "./CardFilm.js";
+import {LoaderElement} from "./Loader.js";
 const d = document;
 
 export async function F_Section_Film(){
@@ -34,13 +34,33 @@ export async function F_FilmSearch(){
     d.addEventListener("click",e=>{
         if (e.target === $submitButton){
             console.log($input.value);
+            searchRequest($input.value);
         }        
     })
 
     d.addEventListener("keydown",e=>{
         if (e.key === "Enter" && e.target === $input){
             console.log($input.value);
+            searchRequest($input.value);
         }
     })
 
+    async function searchRequest(value){  
+        d.querySelector(".film-content").innerHTML = "";
+        
+        await Fetch_Request({
+            url:`${api.SearchMedia}/${value}`,
+            res:(res)=>{            
+                let html = "";
+                console.log(res);
+                res.results.forEach(e=>html += CardFilmSearch(e));
+    
+                d.querySelector(".film-content").innerHTML += html;
+            }
+        });
+
+        d.querySelectorAll(".film-content figure").forEach(e=>{
+            e.style.background = `#${Math.floor(Math.random()*1000)}`;
+        });
+    };
 };
