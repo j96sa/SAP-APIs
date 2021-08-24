@@ -32,15 +32,13 @@ export async function F_FilmSearch(){
     $submitButton = d.querySelector(".input-section button img");
 
     d.addEventListener("click",e=>{
-        if (e.target === $submitButton){
-            console.log($input.value);
+        if (e.target === $submitButton){            
             searchRequest($input.value);
         }        
     })
 
     d.addEventListener("keydown",e=>{
-        if (e.key === "Enter" && e.target === $input){
-            console.log($input.value);
+        if (e.key === "Enter" && e.target === $input){            
             searchRequest($input.value);
         }
     })
