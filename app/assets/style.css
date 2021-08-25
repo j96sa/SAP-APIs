@@ -441,9 +441,6 @@ body{
     font-size: 1.2rem;
 }
 /*EFECT*/
-.film-card figure{
-    background: lemonchiffon;
-}
 .film-card img:hover{    
     transform: translate(4%,-2%)
 }
@@ -474,6 +471,41 @@ body{
         gap:0 50px;    
         justify-content: center;
     }
+}
+
+
+
+
+
+/*ACTORS SECTION*/
+.film_card-content .actor-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+    justify-content: center;
+}
+.actor-content .actor-card{
+    margin-bottom: 80px;
+    cursor: pointer;
+}
+.actor-content figure img{
+    width: 100%; 
+    transition: .35s;          
+}
+.actor-content figure{
+    margin-bottom: 8px;    
+}
+.actor_card-text h3{
+    margin: 2px 0;
+    text-align: center;    
+}
+.actor_card-text p{
+    margin: 8px 0;
+    width: 80%;
+    margin: auto;
+}
+/*EFECT*/
+.actor-card img:hover{    
+    transform: translate(4%,-2%)
 }
 
 

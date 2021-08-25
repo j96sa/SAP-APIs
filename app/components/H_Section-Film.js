@@ -16,7 +16,7 @@ export function H_Section_Film_Com() {
     `;
 };
 
-export async function H_Section_Film() {
+/*export async function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
     document.querySelector(".article-film").innerHTML += Loader();
     document.querySelector(".article-film .loader-section").style.marginRight = "280px";
@@ -45,10 +45,10 @@ export async function H_Section_Film() {
         });
         document.querySelector(".loader-section").style.display = "none";
     }, 3000);    
-};
+};*/
 
 //OKKKKKKKK  OKKOKKK
-/*export async function H_Section_Film() {
+export async function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
     document.querySelector(".article-film").innerHTML += Loader();
 
@@ -76,6 +76,6 @@ export async function H_Section_Film() {
     });
 
     document.querySelector(".loader-section").style.display = "none";              
-};*/
+};
 
 
