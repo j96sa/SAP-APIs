@@ -8,10 +8,10 @@ const d = document;
 export async function F_Section_Film(){
     d.getElementById("main").innerHTML = F_ComInput();
     d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());
-
+    
     await Fetch_Request({
-        url:api.MediaPopular,
-        res:(res)=>{            
+        url:`${api.MediaPopular}`,
+        res:(res)=>{                        
             let html = "";
 
             res.items.forEach(e=>html += CardFilm(e));
@@ -50,7 +50,7 @@ export async function F_Section_Film(){
     
     d.querySelectorAll(".film-content figure").forEach(e=>{
         e.style.background = `#${Math.floor(Math.random()*1000)}`;
-    });
+    });    
 };
 
 export async function F_FilmSearch(){
