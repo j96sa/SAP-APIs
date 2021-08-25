@@ -215,8 +215,7 @@ body{
 @media only screen and (min-width:1200px){
     /*LOADER*/
     .loader-section{
-        margin: auto;
-        margin-right: 280px;
+        margin: auto;        
     }
     .loader-section img{
         width: 110px;
@@ -315,6 +314,200 @@ body{
         transform: scale(1.3);                   
     }
 }
+
+
+
+
+
+
+
+
+
+
+/*****SECCION  MOVIES, SERIES & ACTORS*****/
+
+/*INPUT*/
+.film-input div{
+    display: flex;
+    flex-direction: column;
+}
+.input-section{
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 5px;
+}
+.input-section input{    
+    padding: 0;
+    width: 90%;
+    border: none;
+    outline: none;
+}
+.input-section input::placeholder{
+    color: #000c;
+}
+.input-section button{
+    border: none;
+    padding: 0;    
+}
+.input-section button img{
+    height: 18px; 
+    cursor: pointer;   
+}
+.film-input .switch-container button{
+    width: 100%;
+    text-align: center;
+    border: none;
+    background: var(--red-primary-color);
+    cursor: pointer;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: 4px 0;
+}
+/*RESPONSIVE DEL INPUT SEARCH BREAK 750px*/
+@media only screen and (min-width:750px) {
+    .film-input div{
+        flex-direction: row;
+        height: 34px;
+        justify-content: flex-end;
+        margin: 15px 15px 0 0;
+    }
+    .input-section{
+        order: 1;
+        width: 30%;
+        height: 100%;  
+        margin-left: 10px;
+        border-radius: 8px;      
+    }
+    .input-section input::placeholder{
+        font-size: 1rem;
+    }
+    .film-input .switch-container button{
+        height: 100%;
+        border-radius: 8px;
+        padding: 0 4px;
+    }
+}
+
+
+
+
+
+/*FILM-SECCION-HOME*/
+.film-content{
+    width: 80%;
+    margin: auto;
+}
+.film_card-content h2{
+    text-align: center;
+    font-size: 1.8rem;
+}
+.film-content .film-card{
+    text-align: center;
+    margin-bottom: 80px;
+}
+.film-content .film-card figure{
+    margin: 0;
+}
+.film-content .film-card img{
+    transition: .35s;
+    width: 100%;
+    object-fit:cover;
+    cursor: pointer;
+}
+.film-content .film-card .card-text div{
+    display: flex;
+    width: 88%;
+    margin: auto;
+    justify-content: space-between;
+    color: var(--yellow-primary-color);
+}
+.film-content .film-card .card-text span{
+    color:var(--red-primary-color);
+}
+.film-content .film-card p{
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.film-content .film-card h3{
+    margin-top: 8px;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+/*EFECT*/
+.film-card img:hover{    
+    transform: translate(4%,-2%)
+}
+/*RESPONSIVE DEL FILM-SECTION HOME BREAK(750px)*/
+@media only screen and (min-width:750px) {
+    .film-content{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(50px, 200px));
+        gap:0 30px;    
+        justify-content: center;
+    }
+}
+/*RESPONSIVE DEL FILM-SECTION HOME BREAK(1200px)*/
+@media only screen and (min-width:1200px) {
+    .loader-section{
+        margin: auto;
+    }
+    .film_card-content h2{
+        margin-top: 80px;
+        font-size: 2.5rem;        
+    }    
+    .film-content{
+        margin-top: 80px;
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(50px, 250px));
+        gap:0 50px;    
+        justify-content: center;
+    }
+}
+
+
+
+
+
+/*ACTORS SECTION*/
+.film_card-content .actor-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+    justify-content: center;
+}
+.actor-content .actor-card{
+    margin-bottom: 80px;
+    cursor: pointer;
+}
+.actor-content figure img{
+    width: 100%; 
+    transition: .35s;          
+}
+.actor-content figure{
+    margin-bottom: 8px;    
+}
+.actor_card-text h3{
+    margin: 2px 0;
+    text-align: center;    
+}
+.actor_card-text p{
+    margin: 8px 0;
+    width: 80%;
+    margin: auto;
+}
+/*EFECT*/
+.actor-card img:hover{    
+    transform: translate(4%,-2%)
+}
+
 
 
 

@@ -1,3 +1,4 @@
+import { Com_Film } from "./Com_Film.js";
 import { Com_Home } from "./Com_Home.js";
 
 export function  Router() {
@@ -18,7 +19,7 @@ export function  Router() {
         break;
 
         case "#/films":
-            d.getElementById("main").innerHTML = "films";
+            Com_Film();
         break;
     
         case "#/art":

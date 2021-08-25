@@ -1,6 +1,6 @@
 import {Fetch_Request} from "../helpers/Fetch_Request.js";
 import media from "../helpers/API_movies.js" ;
-import Loader from "./Loader.js";
+import {Loader} from "./Loader.js";
 
 export function H_Section_Film_Com() {
     return `
@@ -19,6 +19,7 @@ export function H_Section_Film_Com() {
 /*export async function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
     document.querySelector(".article-film").innerHTML += Loader();
+    document.querySelector(".article-film .loader-section").style.marginRight = "280px";
     
     setTimeout(() => {
         Fetch_Request({
