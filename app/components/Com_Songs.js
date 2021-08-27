@@ -33,7 +33,7 @@ export function Com_Songs(){
                     d.querySelector(".film_card-content .artist-content").innerHTML = `<h2 class="search-error">Lo sentimos; No se han encontrado coincidencias con: <span>"${name}"</span>.</h2>`;
                 }else{
                     let dat = res.artists[0];
-                    console.log(dat);
+                    //console.log(dat);
                     
                     d.querySelector(".film_card-content .artist-content").innerHTML = CardSing(dat);
                                                                                                     
