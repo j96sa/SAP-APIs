@@ -9,6 +9,7 @@ export function Com_Songs(){
 
     const $submitButton = d.querySelector(".input-section img"),
     $input = d.querySelector(".input-section input");
+    d.querySelector(".film-content").classList = "artist-content";
 
     d.addEventListener("click",e=>{
         if (e.target === $submitButton){                          
@@ -29,12 +30,12 @@ export function Com_Songs(){
                 //console.log(res);              
                 if (res.artists === null){
                     console.log("Lo sentimos no existen coincidencias");
-                    d.querySelector(".film_card-content .film-content").innerHTML = `<h2 class="search-error">Lo sentimos; No se han encontrado coincidencias con: <span>"${name}"</span>.</h2>`;
+                    d.querySelector(".film_card-content .artist-content").innerHTML = `<h2 class="search-error">Lo sentimos; No se han encontrado coincidencias con: <span>"${name}"</span>.</h2>`;
                 }else{
                     let dat = res.artists[0];
-                    //console.log(dat);
+                    console.log(dat);
                     
-                    d.querySelector(".film_card-content .film-content").innerHTML = CardSing(dat);
+                    d.querySelector(".film_card-content .artist-content").innerHTML = CardSing(dat);
                                                                                                     
                     getAlbumsId(dat.idArtist);
                     async function getAlbumsId(URL){
@@ -50,12 +51,12 @@ export function Com_Songs(){
                             let h3 = d.createElement("h3");
                             h3.classList = "subtitle";
                             h3.innerText = "Discography & Songs";
-                            d.querySelector(".film-content .artist-article").insertAdjacentElement("afterend",art);
+                            d.querySelector(".artist-content .artist-article").insertAdjacentElement("afterend",art);
                             art.insertAdjacentElement("beforebegin",h3);
                                                         
                             let html = "";                            
                             albums.forEach(e=>html += CardDisc(e));                            
-                            d.querySelector(".film-content .artist_albums-all").innerHTML += html;
+                            d.querySelector(".artist-content .artist_albums-all").innerHTML += html;
                         } 
                         catch(err) {
                             console.log(err);

@@ -3,7 +3,7 @@ export function CardSing(e){
         <article class="artist-article">
             <div class="artist-header">                
                 <section class="artist-img">
-                    <img src="${e.strArtistBanner === null ?e.strArtistFanart :e.strArtistBanner}">
+                    <img src="${e.strArtistBanner === null || e.strArtistBanner === "" ?e.strArtistFanart :e.strArtistBanner}">
                     <h3 class="subtitle">${e.strArtist}</h3>                      
                 </section>
                 <section class="artist-info">

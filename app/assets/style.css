@@ -518,11 +518,15 @@ body{
 
 
 /************ SECTION ARTIST & SONG *****************/
-.film_card-content .film-content .search-error{
+.film_card-content .artist-content{
+    width: 90%;
+    margin: auto;
+}
+.film_card-content .artist-content .search-error{
     color: var(--red-primary-color);
     font-size: 1.2rem;
 }
-.film-content .search-error span{
+.artist-content .search-error span{
     color:#fff;
     font-size: 1.4rem;
 }
@@ -545,24 +549,56 @@ body{
 }
 
 /*albums*/
-.film-content .artist_albums-all{
+.artist-content .artist_albums-all{
+    margin: auto;
     background: #888; 
     border-radius: 3px;
-    margin-bottom: 40px;   
+    margin-bottom: 40px; 
+    max-width: 510px;
+    transition: .2s;  
 }
-.film-content .artist_albums-all .artist-album{
+.artist-content .artist_albums-all .artist-album{
     display: flex;
     justify-content: space-around; 
     border-bottom:1px solid #0006; 
     cursor: pointer;  
 }
-.film-content > h3{
+.artist-album:hover{
+    background: #999;    
+}
+.artist-content > h3{
+    text-align: center;
     margin-top: 60px;
-    font-size: 1.3rem;    
+    font-size: 1.3rem;        
 }
 .artist_albums-all .artist-album span{
     color: var(--yellow-primary-color);
 }
+
+/*RESPONSIVE DEL SINGERS&SONGS HOME BREAK(1150px)*/
+@media only screen and (min-width:1150px){
+    .film_card-content .artist-content .search-error{        
+        font-size: 1.7rem;
+    }
+    .artist-content .search-error span{        
+        font-size: 1.9rem;
+    }
+    .artist-article .artist-img h3{
+        font-size: 1.8rem;
+    }
+    .artist-article .artist-info p{
+        font-size: 1.5rem;
+    }
+    .artist-article .artist-bio{
+        font-size: .95rem;
+        line-height: 1.7;
+    }
+
+    .artist-content h3{
+        font-size: 1.8rem;
+    }
+}
+
 
 
 
