@@ -49,7 +49,7 @@ export async function F_Section_Film(){
     d.querySelector(".film_card-content .loader-section").style.display = "none";
     
     d.querySelectorAll(".film-content figure").forEach(e=>{
-        e.style.background = `#${Math.floor(Math.random()*1000)}`;
+        e.style.background = `#${Math.round(Math.random()*999)}`;
     });    
 };
 
