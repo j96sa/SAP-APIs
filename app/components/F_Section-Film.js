@@ -11,7 +11,7 @@ export async function F_Section_Film(){
     
     await Fetch_Request({
         url:`${api.MediaPopular}`,
-        res:(res)=>{                        
+        res:(res)=>{                           
             let html = "";
 
             res.items.forEach(e=>html += CardFilm(e));
@@ -76,11 +76,20 @@ export async function F_FilmSearch(){
         
         await Fetch_Request({
             url:`${api.SearchMedia}/${value}`,
-            res:(res)=>{            
-                let html = "";                
-                res.results.forEach(e=>html += CardFilmSearch(e));
-    
-                d.querySelector(".film-content").innerHTML += html;
+            res:(res)=>{      
+                if (res.results.length === 0){                    
+                    let h3 = d.createElement("h3");
+                    h3.classList = "error-verification";
+                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${res.expression}"</span>.`;
+                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
+                    setTimeout(() => {
+                        d.querySelector(".film_card-content > h3").remove();
+                    }, 3000);
+                }else{
+                    let html = "";                
+                    res.results.forEach(e=>html += CardFilmSearch(e));    
+                    d.querySelector(".film-content").innerHTML += html;
+                };                                
             }
         });  
         

@@ -36,10 +36,22 @@ export async function F_Section_Actor(){
         
         await Fetch_Request({
             url:`${api.Actor}/${value}`,
-            res:(res)=>{            
-                let html = "";                
-                res.results.forEach(e=>html += CardActor(e));
-                d.querySelector(".actor-content").innerHTML += html;                
+            res:(res)=>{ 
+                if (res.results.length === 0){                    
+                    let h3 = d.createElement("h3");
+                    h3.classList = "error-verification";
+                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${res.expression}"</span>.`;
+                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
+                    setTimeout(() => {
+                        d.querySelector(".film_card-content > h3").remove();
+                    }, 3000);
+                }else{
+                    console.log(res);          
+                    let html = "";                
+                    res.results.forEach(e=>html += CardActor(e));
+                    d.querySelector(".actor-content").innerHTML += html;                
+                }; 
+                
             }
         });        
 
