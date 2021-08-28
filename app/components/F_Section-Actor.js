@@ -45,8 +45,7 @@ export async function F_Section_Actor(){
                     setTimeout(() => {
                         d.querySelector(".film_card-content > h3").remove();
                     }, 3000);
-                }else{
-                    console.log(res);          
+                }else{                              
                     let html = "";                
                     res.results.forEach(e=>html += CardActor(e));
                     d.querySelector(".actor-content").innerHTML += html;                
@@ -55,7 +54,7 @@ export async function F_Section_Actor(){
             }
         });        
 
-        d.querySelector(".film_card-content .loader-section").style.display = "none";
+        d.querySelector(".film_card-content .loader-section").remove();
 
         d.querySelectorAll(".actor-content figure").forEach(e=>{
             e.style.background = `#${Math.round(Math.random()*999)}`;
