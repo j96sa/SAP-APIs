@@ -22,10 +22,21 @@ export function CardSing(e){
 
 export function CardDisc(e){
     return `
-        <div class="artist-album" data-id="${e.idAlbum}">
-            <p><span>name:</span> ${e.strAlbum}</p>
-            <p><span>year:</span> ${e.intYearReleased}</p>
-            <p><span>genere:</span> ${e.strGenre}</p>
+        <div class="artist-album">
+            <p><span>Album Name:</span> ${e.strAlbum}</p>
+            <p><span>Year:</span> ${e.intYearReleased}</p>
+            <p><span>Genre:</span> ${e.strGenre}</p>
+            <img data-id="${e.idAlbum}" src="./app/assets/more.png">
         </div>
+    `;
+};
+
+export function CardSongs(e){
+    return `
+        <section class="track">
+            <p><span>name: </span>${e.strTrack}</p>
+            <p><span>genre: </span>${e.strGenre}</p>
+            <p><span>duration: </span>${Math.floor((e.intDuration/1000/60) << 0)}:${Math.floor(e.intDuration/1000%60)}</p>            
+        </section>
     `;
 };

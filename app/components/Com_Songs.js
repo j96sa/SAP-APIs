@@ -1,7 +1,7 @@
 import { S_CompInput } from "./S_ComInput.js";
 import api from "../helpers/API_audio.js";
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import { CardDisc, CardSing } from "./CardSing.js";
+import { CardDisc, CardSing, CardSongs } from "./CardSing.js";
 
 export function Com_Songs(){
     const d = document;
@@ -14,6 +14,10 @@ export function Com_Songs(){
     d.addEventListener("click",e=>{
         if (e.target === $submitButton){                          
             getArtist($input.value)            
+        };
+                
+        if (e.target.matches(".artist-album img")){
+            getSongs(e);
         };        
     });
 
@@ -53,20 +57,60 @@ export function Com_Songs(){
                             h3.innerText = "Discography & Songs";
                             d.querySelector(".artist-content .artist-article").insertAdjacentElement("afterend",art);
                             art.insertAdjacentElement("beforebegin",h3);
-                                                        
+                            
+                            //CLASES PARA SUSTITUIR Y PODER CUMPLIR LAS VALIDACIONES
+                            let remove = d.createElement("div")
+                            remove.classList = "album-tracks";
+                            art.appendChild(remove);
+                            let full = d.createElement("div");
+                            full.classList = "artist-album";
+                            let img = d.createElement("img");
+                            img.classList = "full";
+                            full.appendChild(img);
+                            art.appendChild(full);
+                            //d.querySelector(".artist_albums-all .artist-album img").classList = "full";
+                            
+
                             let html = "";                            
                             albums.forEach(e=>html += CardDisc(e));                            
-                            d.querySelector(".artist-content .artist_albums-all").innerHTML += html;
+                            d.querySelector(".artist-content .artist_albums-all").innerHTML += html;                            
                         } 
                         catch(err) {
                             console.log(err);
                         }
-                    };
+                    };                    
                 };
             }
-        });
-    }
+        });        
+    };
 
+    async function getSongs(e){
+        if(!e.target.classList.contains("full")){
+            d.querySelector(`.artist-album img[class="full"]`).classList = "";
+            e.target.classList = "full";            
     
+            await Fetch_Request({
+                url:`${api.AlbumsSongs}${e.target.dataset.id}`,
+                res:(res)=>{
+                    d.querySelector(".artist_albums-all .album-tracks").remove();
+    
+                    let arr = res.track;                    
+                    let div = d.createElement("div");
+                    div.classList = "album-tracks";
+                    
+                    arr.forEach(e=>div.innerHTML += CardSongs(e));    
+                    e.target.parentElement.insertAdjacentElement("afterend",div)                                                                            
+                }
+            })
+        }else{            
+            d.querySelector(".artist_albums-all .album-tracks").remove();
+            e.target.classList = "";
+            d.querySelector(".artist-album img").classList = "full";
+
+            let remove = d.createElement("div");
+            remove.classList = "album-tracks";
+            d.querySelector(".artist_albums-all").appendChild(remove);
+        };    
+    };
 
 };

@@ -1,0 +1,35 @@
+audio-DB:
+artist:`https://theaudiodb.com/api/v1/json/1/search.php?s=${nombre del artista}`
+datos del artista por id:`https://theaudiodb.com/api/v1/json/{APIKEY}/artist.php?i=${id del artista}`
+All Data Albums:`https://theaudiodb.com/api/v1/json/1/album.php?i=${id del artista}`
+All Songs from Album:`https://theaudiodb.com/api/v1/json/1/track.php?m=${id del album}`
+discography:`https://theaudiodb.com/api/v1/json/1/discography.php?s=${nombre del artista}`;
+
+
+
+imdb:    api-key:k_12345678
+search all:`https://imdb-api.com/en/API//SearchTitle/${ApiKey}/${nombre de la pelicula/serie}`
+info de un titulo:`https://imdb-api.com/en/API/Title/${ApiKey}/${id del titulo}`
+posters de un titulo:`https://imdb-api.com/en/API/Posters/${ApiKey}/${id del titulo}`
+actor:`https://imdb-api.com/en/API/SearchName/${ApiKey}/${nombre del actor}`
+datos del actor:`https://imdb-api.com/en/API/Name/${ApiKey}/${id del actor}`
+
+peliculas populares:`https://imdb-api.com/en/API/MostPopularMovies/${ApiKey}`
+
+film por nombre:`https://imdb-api.com/en/API//SearchMovie/${ApiKey}/${nombre de la pelicula}`
+series por nombre:`https://imdb-api.com/en/API//SearchSeries/${ApiKey}/${nombre de la Serie}`
+
+
+
+
+museo metropolitano de arte: 
+datos de un objeto:`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id del objeto}`
+listado de todos los departamentos:`https://collectionapi.metmuseum.org/public/collection/v1/departments`
+busqueda por termino:`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${termino de busqueda}`
+buscar un objeto dentro de un departamento: `https://collectionapi.metmuseum.org/public/collection/v1/search?departments=${id del departamento}&q=${nombre del objeto a buscar}`
+busqueda de un artista:`https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q=${nombre del artista}`
+.....
+mona lisa--816432
+escultura--204812
+inferno--338114
+niños--436850

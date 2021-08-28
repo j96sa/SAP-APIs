@@ -601,13 +601,17 @@ body{
     border-radius: 3px;
     margin-bottom: 40px; 
     max-width: 510px;
-    transition: .2s;  
+    transition: .2s;     
 }
 .artist-content .artist_albums-all .artist-album{
     display: flex;
-    justify-content: space-around; 
-    border-bottom:1px solid #0006; 
-    cursor: pointer;  
+    justify-content: space-between; 
+    border-bottom:1px solid #0006;     
+    align-items: center;    
+    padding: 0 5px;
+}
+.artist-album p{
+    font-size:1rem ;
 }
 .artist-album:hover{
     background: #999;    
@@ -619,6 +623,10 @@ body{
 }
 .artist_albums-all .artist-album span{
     color: var(--yellow-primary-color);
+}
+.artist-album img{
+    height: 25px;
+    cursor: pointer;
 }
 
 /*RESPONSIVE DEL SINGERS&SONGS HOME BREAK(1150px)*/
@@ -650,7 +658,19 @@ body{
         font-size: 1.2rem;
     }
 }
-
+/*ALBUM SONGS LIST*/
+.artist_albums-all .album-tracks{
+    border-bottom: 1px solid #0006;
+}
+.album-tracks .track{
+    display: flex;
+    border-bottom: .5px solid #0004;
+    justify-content: space-around;
+    padding: 0 5px;
+}
+.album-tracks .track span{
+    color: var(--red-primary-color);
+}
 
 
 

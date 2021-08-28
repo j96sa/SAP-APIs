@@ -7,12 +7,12 @@ export async function Fetch_Request(props){
         console.log(err); 
         document.getElementById("main").innerHTML = `
             <article class="err-dfault">
-                <img src="./app/assets/error-img.jpg" alt="err-img">
+                ${window.matchMedia("(min-width: 860px)").matches ?`<img src="./app/assets/desktop-error-img.jpg" alt="err-img"></img>` :`<img src="./app/assets/error-img.jpg" alt="err-img"></img>`}
                 <section>
                     <p>Sorry we are having trouble connecting to our database; Please try again later.</p>
                 </section>                
             </article>
-        `;       
+        `;              
     });
 };
 
