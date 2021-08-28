@@ -484,6 +484,41 @@ body{
     }
 }
 
+/*FILM-INFO-SECTION*/
+.film_card-content .film-info{
+    width: 90%;
+    margin: auto;
+}
+.film-info .info-container img{
+    width: 100%;
+}
+.info-container .film-info_content p{
+    font-size: 1rem;
+}
+.info-container .film-info_content span{
+    color: var(--yellow-primary-color);    
+}
+@media only screen and (min-width:500px){
+    .info-container .film-info_content p{
+        font-size: 1.3rem;
+    }  
+}
+@media only screen and (min-width:1100px){
+    .film_card-content .film-info{
+        width: 100%;                
+    }
+    .film-info .info-container{
+        display: grid;        
+        grid-template-columns: repeat(2, 500px);        
+        justify-content: space-around;
+        text-align: center;
+        margin: 50px 0;
+    }
+    .info-container .film-info_content p{
+        font-size: 1.3rem;
+    }  
+}
+
 
 
 

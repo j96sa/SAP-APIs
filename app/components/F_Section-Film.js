@@ -1,6 +1,6 @@
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
 import api from "../helpers/API_movies.js";
-import { CardFilm, CardFilmSearch } from "./CardFilm.js";
+import { CardFilm, CardFilmInfo, CardFilmSearch } from "./CardFilm.js";
 import {LoaderElement} from "./Loader.js";
 import { F_ComInput } from "./F_ComInput.js";
 const d = document;
@@ -13,9 +13,7 @@ export async function F_Section_Film(){
         url:`${api.MediaPopular}`,
         res:(res)=>{                           
             let html = "";
-
             res.items.forEach(e=>html += CardFilm(e));
-
             d.querySelector(".film-content").innerHTML += html;
         }
     });
@@ -100,3 +98,27 @@ export async function F_FilmSearch(){
         });
     };
 };
+
+export async function F_Film_Info(){
+
+    d.addEventListener("click",async e=>{
+        if(e.target.matches(".film-card img")){
+            //console.log(e.target.dataset.id);
+            d.querySelector(".film_card-content .loader-section").style.display = "block";
+
+            await Fetch_Request({
+                url:`${api.MediaInfo}${e.target.dataset.id}`,
+                res:(res)=>{
+                    console.log(res);
+                    d.querySelector(".film_card-content .film-content").classList = "film-info";
+                    d.querySelector(".film_card-content h2.subtitle").innerHTML = `${res.title}`;
+                    d.querySelector(".film_card-content .film-info").innerHTML = CardFilmInfo(res);
+                }
+            });
+
+            d.querySelector(".film_card-content .loader-section").style.display = "none";
+        };
+    });
+
+};
+
