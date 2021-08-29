@@ -55,7 +55,7 @@ export async function H_Section_Film() {
     await Fetch_Request({
         url:`${media.MediaPopular}`,
         res:(json)=>{
-            //console.log(json);            
+            console.log(json);            
             let arr = [];
 
             for(let i = 4; i > 0; i--){                

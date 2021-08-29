@@ -2,6 +2,7 @@ import { S_CompInput } from "./S_ComInput.js";
 import api from "../helpers/API_audio.js";
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
 import { CardDisc, CardSing, CardSongs } from "./CardSing.js";
+import {LoaderElement} from "./Loader.js";
 
 export function Com_Songs(){
     const d = document;
@@ -28,6 +29,8 @@ export function Com_Songs(){
     });
 
     async function getArtist(name){
+        d.querySelector(".film_card-content .subtitle").insertAdjacentElement("afterend",LoaderElement());
+
         await Fetch_Request({
             url:`${api.Artist}${name}`,
             res:(res)=>{  
@@ -64,12 +67,11 @@ export function Com_Songs(){
                             art.appendChild(remove);
                             let full = d.createElement("div");
                             full.classList = "artist-album";
+                            full.style.display = "none";
                             let img = d.createElement("img");
                             img.classList = "full";
                             full.appendChild(img);
-                            art.appendChild(full);
-                            //d.querySelector(".artist_albums-all .artist-album img").classList = "full";
-                            
+                            art.appendChild(full);                                                        
 
                             let html = "";                            
                             albums.forEach(e=>html += CardDisc(e));                            
@@ -81,7 +83,8 @@ export function Com_Songs(){
                     };                    
                 };
             }
-        });        
+        });
+        d.querySelector(".film_card-content .loader-section").remove();
     };
 
     async function getSongs(e){
@@ -112,5 +115,4 @@ export function Com_Songs(){
             d.querySelector(".artist_albums-all").appendChild(remove);
         };    
     };
-
 };
