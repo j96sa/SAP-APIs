@@ -12,7 +12,7 @@ export function F_ComInput(){
             </div>
         </article>
         <article class="film_card-content">
-            <h2 class="subtitle">Pupular Films</h2>
+            <h2 class="subtitle">Popular Films</h2>
             <div class="film-content"></div>
         </article>
     `;

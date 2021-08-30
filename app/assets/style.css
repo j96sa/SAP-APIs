@@ -329,7 +329,7 @@ body{
 /*INPUT*/
 .film-input div{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 .input-section{
     box-sizing: border-box;
@@ -432,9 +432,8 @@ body{
 }
 .film-content .film-card .card-text div{
     display: flex;
-    width: 88%;
-    margin: auto;
-    justify-content: space-between;
+    flex-direction: column;    
+    text-align: left;    
     color: var(--yellow-primary-color);
 }
 .film-content .film-card .card-text span{

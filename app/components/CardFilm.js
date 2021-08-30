@@ -1,32 +1,42 @@
+import api from "../helpers/API_tmdb.js";
+const {ImgSrc} = api;
 export function CardFilm(e){
+    const {id,title,poster_path,release_date,vote_average} = e,
+    date = new Date(release_date).toDateString();        
+
     return `
         <section class="film-card">
             <figure>
-                <a href="#/film-info"><img data-id="${e.id}" src="${e.image}"></a>
+                <a href="#/film-info"><img data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
             </figure>
             <div class="card-text">
-                <h3 class="subtitle">${e.title}</h3>
-                <p><span>cast: </span>${e.crew}</p>
+                <h3 class="subtitle">${title}</h3>                
                 <div>
-                    <p>year: <span>${e.year}</span></p>
-                    <p>Rat: <span>${e.imDbRating}</span></p>
+                    <p>date: <span>${date.slice(0,10)+", "+date.slice(11,16)}</span></p>
+                    <p>votes: <span>${vote_average}</span> / 10</p>
                 </div>
             </div>
         </section>  
     `;
 };
 
-export function CardFilmSearch(e){
+export function CardSeriesSearch(e){
+    const {id,name,poster_path,first_air_date,vote_average} = e,
+    date = new Date(first_air_date).toDateString();
+
     return `
-        <section class="film-card">
-            <figure>
-                <a href="#/film-info"><img data-id="${e.id}" src="${e.image}"></a>
-            </figure>
-            <div class="card-text">
-                <h3 class="subtitle">${e.title}</h3>
-                <p><span>description: </span>${e.description}</p>
-            </div>
-        </section>
+    <section class="film-card">
+    <figure>
+        <a href="#/film-info"><img data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
+    </figure>
+    <div class="card-text">
+        <h3 class="subtitle">${name}</h3>                
+        <div>
+            <p>first air date: <span>${date.slice(0,10)+", "+date.slice(11,16)}</span></p>
+            <p>votes: <span>${vote_average}</span> / 10</p>
+        </div>
+    </div>
+</section>
     `;
 };
 

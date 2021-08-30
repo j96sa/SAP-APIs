@@ -1,11 +1,15 @@
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_movies.js";
-import { CardFilm, CardFilmInfo, CardFilmSearch } from "./CardFilm.js";
+//import api from "../helpers/API_movies.js";
+import api from "../helpers/API_tmdb.js";
+import { CardFilm, CardFilmInfo, CardSeriesSearch } from "./CardFilm.js";
 import {LoaderElement} from "./Loader.js";
 import { F_ComInput } from "./F_ComInput.js";
+import { Infinite_Scroll } from "./Infinite_Scroll.js";
 const d = document;
+const {Film,Series,Actor,PopularFilms,ImgSrc,Name,Pages} = api;
 
-export async function F_Section_Film(){
+//**********OLD API
+/*export async function F_Section_Film(){
     d.getElementById("main").innerHTML = F_ComInput();
     d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());
     
@@ -16,39 +20,38 @@ export async function F_Section_Film(){
             res.items.forEach(e=>html += CardFilm(e));
             d.querySelector(".film-content").innerHTML += html;
         }
-    });
-
-    /*await Fetch_Request({
-        url:`https://jsonplaceholder.typicode.com/photos`,
-        res:(res)=>{            
-            let arr = [],
-            html = "";                                   
-            
-            for(let i = 100; i > 0; i--){                
-                arr.push(res[i]);
-            };
-
-            arr.forEach(e=>{
-                html += `
-                <section class="film-card">
-                    <figure>
-                        <img src="${e.url}">
-                    </figure>
-                    <div class="card-text">
-                        <h3 class="subtitle">${e.title}</h3>
-                    </div>
-                </section>
-                `;
-            });
-            d.querySelector(".film-content").innerHTML += html;
-        }
-    });*/
+    });    
     
     d.querySelector(".film_card-content .loader-section").style.display = "none";
     
     d.querySelectorAll(".film-content figure").forEach(e=>{
         e.style.background = `#${Math.round(Math.random()*999)}`;
     });    
+};*/
+
+export async function F_Section_Film(){
+    d.getElementById("main").innerHTML = F_ComInput();
+    d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());
+    
+    const url = `${PopularFilms+Pages}`;
+    await Fetch_Request({
+        url:url,
+        res:(res)=>{                                                   
+            let html = "";
+            res.results.forEach(e=>html += CardFilm(e));
+            d.querySelector(".film-content").innerHTML += html;
+        }
+    });        
+    d.querySelector(".film_card-content .loader-section").remove();
+    d.querySelectorAll(".film-content figure").forEach(e=>{
+        e.style.background = `#${Math.round(Math.random()*999)}`;
+    });
+        
+    d.addEventListener("scroll",e=>{
+        if(d.querySelector(".film_card-content h2.subtitle").innerText === "Popular Films"){
+            Infinite_Scroll(url);            
+        };
+    })
 };
 
 export async function F_FilmSearch(){
@@ -70,9 +73,10 @@ export async function F_FilmSearch(){
     async function searchRequest(value){  
         d.querySelector(".film-content").innerHTML = "";
         d.querySelector(".film_card-content h2.subtitle").textContent = "Results";
-        d.querySelector(".film_card-content .loader-section").style.display = "block";
+        d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());
         
-        await Fetch_Request({
+        //*********OLD API
+        /*await Fetch_Request({
             url:`${api.SearchMedia}/${value}`,
             res:(res)=>{      
                 if (res.results.length === 0){                    
@@ -89,12 +93,59 @@ export async function F_FilmSearch(){
                     d.querySelector(".film-content").innerHTML += html;
                 };                                
             }
-        });  
-        
-        d.querySelector(".film_card-content .loader-section").style.display = "none";
+        });*/ 
+        const url = `${Film+Name}${value}`;
+        await Fetch_Request({
+            url:url,
+            res:(res)=>{                
+                if (res.results.length === 0){                                              
+                    let h3 = d.createElement("h3");
+                    h3.classList = "error-verification";
+                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${value}"</span>.`;
+                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
+                    setTimeout(() => {
+                        d.querySelector(".film_card-content > h3").remove();
+                    }, 3000);
+                }else{
+                    let html = "";                
+                    res.results.forEach(e=>html += CardFilm(e));    
+                    d.querySelector(".film-content").innerHTML += html;
+                    console.log(res);
+                };                                
+            }
+        });
 
+        const url2 = `${Series+Name}${value}`
+        await Fetch_Request({
+            url:url2,
+            res:(res)=>{                
+                if (res.results.length === 0){                                              
+                    let h3 = d.createElement("h3");
+                    h3.classList = "error-verification";
+                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${value}"</span>.`;
+                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
+                    setTimeout(() => {
+                        d.querySelector(".film_card-content > h3").remove();
+                    }, 3000);
+                }else{
+                    let html = "";                
+                    res.results.forEach(e=>html += CardSeriesSearch(e));    
+                    d.querySelector(".film-content").innerHTML += html;
+                    //console.log(res);
+                };                                
+            }
+        });
+
+        d.querySelector(".film_card-content .loader-section").remove();
         d.querySelectorAll(".film-content figure").forEach(e=>{
             e.style.background = `#${Math.round(Math.random()*999)}`;
+        });
+
+        d.addEventListener("scroll",e=>{
+            if(d.querySelector(".film_card-content h2.subtitle").innerText === "Results"){
+                Infinite_Scroll(url);
+                //Infinite_Scroll(url2);
+            };
         });
     };
 };

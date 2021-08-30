@@ -1,5 +1,5 @@
 import {Fetch_Request} from "../helpers/Fetch_Request.js";
-import media from "../helpers/API_movies.js" ;
+//import media from "../helpers/API_movies.js" ;
 import {Loader} from "./Loader.js";
 import api from "../helpers/API_tmdb.js";
 
@@ -64,7 +64,7 @@ export async function H_Section_Film() {
             
             arr.forEach(e=>{
                 let img = document.createElement("img");
-                img.src = api.Image+e.poster_path;
+                img.src = api.ImgSrc+e.poster_path;
                 img.alt = e.title;
                 $fragment.appendChild(img);
             });
