@@ -7,7 +7,7 @@ export function CardFilm(e){
     return `
         <section class="film-card">
             <figure>
-                <a href="#/film-info"><img data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
+                <a href="#/film-info"><img class="movie" data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
             </figure>
             <div class="card-text">
                 <h3 class="subtitle">${title}</h3>                
@@ -27,7 +27,7 @@ export function CardSeriesSearch(e){
     return `
     <section class="film-card">
     <figure>
-        <a href="#/film-info"><img data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
+        <a href="#/film-info"><img class="tv" data-id="${id}" src="${poster_path ?ImgSrc+poster_path :`./app/assets/no-img.png`}"></a>
     </figure>
     <div class="card-text">
         <h3 class="subtitle">${name}</h3>                
@@ -41,6 +41,106 @@ export function CardSeriesSearch(e){
 };
 
 export function CardFilmInfo(e){
+    const {homepage,status,overview,runtime,release_date,spoken_languages,backdrop_path,poster_path,genres,tagline,vote_average,production_countries,production_companies} = e,
+    date = new Date(release_date).toDateString();
+
+    let companies = "";
+    production_companies.forEach(e=>companies += `
+        <img src="${e.logo_path ?ImgSrc+e.logo_path :`./app/assets/no-img.png`}"><br>            
+        <p>${e.name}</p>
+    `);
+
+    let listGenres = "";
+    genres.forEach(e=>listGenres +=`
+        ${e.name}, 
+    `);
+
+    let countries = "";
+    production_countries.forEach(e=>countries +=`
+        ${e.name}
+    `);
+
+    let languages = "";
+    spoken_languages.forEach(e=>languages += `
+        ${e.english_name},
+    `);
+
+    return `
+        <section class="info-container">
+            <img src="${ImgSrc+poster_path}">
+            <img src="${ImgSrc+backdrop_path}">
+            <h2 class="subtitle">${tagline}</h2>
+            <p><span>Oficial Site:</span> <a href="${homepage}">${homepage}</a></p>
+            <div class="film-info_content">                
+                <section>
+                    ${companies}
+                </section>                
+                <p><span>Duration: </span>${Math.floor(runtime/60)} h  :  ${runtime%60} min</p>
+                <p><span>Languages: </span>${languages}</p>
+                <p><span>Genres: </span>${listGenres}</p>
+                <p><span>Countries: </span>${countries}</p>                
+                <p><span>Vote Average: </span>${vote_average}</p>                
+                <p><span>Year: </span>${date.slice(0,10)+", "+date.slice(11,16)}</p>
+                <p><span>Status: </span>${status}</p>
+                <p><span>Plot: </span>${overview}</p>
+            </div>   
+        </section>
+    `;
+};
+
+export function CardSeriesInfo(e){
+    const {overview,episode_run_time,number_of_episodes,status,tagline,vote_average,spoken_languages,number_of_seasons,poster_path,backdrop_path,first_air_date,genres,homepage,in_production,production_companies,production_countries} = e,
+    date = new Date(first_air_date).toDateString();
+
+    let companies = "";
+    production_companies.forEach(e=>companies += `
+        <img src="${e.logo_path ?ImgSrc+e.logo_path :`./app/assets/no-img.png`}"><br>            
+        <p>${e.name}</p>
+    `);
+
+    let listGenres = "";
+    genres.forEach(e=>listGenres +=`
+        ${e.name}, 
+    `);
+
+    let countries = "";
+    production_countries.forEach(e=>countries +=`
+        ${e.name}
+    `);
+
+    let languages = "";
+    spoken_languages.forEach(e=>languages += `
+        ${e.english_name},
+    `);
+    
+
+    return `
+        <section class="info-container">
+            <img src="${ImgSrc+poster_path}">
+            <img src="${ImgSrc+backdrop_path}">
+            <h2 class="subtitle">${tagline}</h2>
+            <p><span>Oficial Site:</span> <a href="${homepage}">${homepage}</a></p>
+            <div class="film-info_content">                
+                <section>
+                    ${companies}
+                </section>                
+                <p><span>Duration for episode: </span>${episode_run_time} min</p>
+                <p><span>Languages: </span>${languages}</p>
+                <p><span>Genres: </span>${listGenres}</p>
+                <p><span>Countries: </span>${countries}</p>                
+                <p><span>Vote Average: </span>${vote_average}</p>                
+                <p><span>First Air-Day: </span>${date.slice(0,10)+", "+date.slice(11,16)}</p>
+                <p><span>Status: </span>${status}</p>
+                <p><span>Plot: </span>${overview}</p>
+                <p><span>On-Air: </span>${in_production}</p>
+                <p><span>Seasons: </span>${number_of_seasons}</p>
+                <p><span>Seasons: </span>${number_of_episodes}</p>
+            </div>   
+        </section>
+    `;
+};
+
+export function CardPersonInfo(e){
     return `
         <section class="info-container">
             <img src="${e.image}">

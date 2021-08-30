@@ -34,13 +34,13 @@ export function Com_Songs(){
         await Fetch_Request({
             url:`${api.Artist}${name}`,
             res:(res)=>{  
-                //console.log(res);              
+                console.log(res);              
                 if (res.artists === null){
                     console.log("Lo sentimos no existen coincidencias");
                     d.querySelector(".film_card-content .artist-content").innerHTML = `<h2 class="search-error">Lo sentimos; No se han encontrado coincidencias con: <span>"${name}"</span>.</h2>`;
                 }else{
                     let dat = res.artists[0];
-                    //console.log(dat);
+                    console.log(dat);
                     
                     d.querySelector(".film_card-content .artist-content").innerHTML = CardSing(dat);
                                                                                                     

@@ -6,5 +6,5 @@ document.addEventListener("DOMContentLoaded",e=>{
 
 
 window.addEventListener("hashchange",e=>{
-    App();
+    App();    
 })
