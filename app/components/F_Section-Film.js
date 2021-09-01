@@ -32,7 +32,7 @@ export async function F_Section_Film(){
 
             //validaciones para resetear el valor de la variable page;
             d.addEventListener("click",e=>{                                                                                                                                                                     
-                if (e.target === d.querySelector(".input-section button img") || (e.target === d.querySelector(".header_home a img")) || (e.target.matches(".header_links a"))){                                                        
+                if (e.target === d.querySelector(".input-section button img") || (e.target === d.querySelector(".header_home a img")) || (e.target.matches(".header_links a")) || (e.target.matches(".film-card a img"))){
                     page = 1;                    
                 };        
             });
@@ -89,6 +89,7 @@ export async function F_FilmSearch(){
     
     //CARGA DE LA SECCION DE SERIES Y PELICULAS
     async function searchRequest(value){  
+        d.querySelector(".film-content").classList.remove("film-info");
         d.querySelector(".film-content").innerHTML = "";
         d.querySelector(".film_card-content h2.subtitle").textContent = "Results";
         d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());                 
@@ -149,8 +150,7 @@ export async function F_Film_Info(){
             if (e.target.classList.contains("movie")){
                 await Fetch_Request({
                     url:`https://api.themoviedb.org/3/${e.target.classList}/${e.target.dataset.id}?api_key=${locked.xlor12}`,
-                    res:(res)=>{
-                        console.log(res);
+                    res:(res)=>{                        
                         d.querySelector(".film_card-content .film-content").classList.add("film-info");
                         d.querySelector(".film_card-content h2.subtitle").innerHTML = `${res.original_title}`;
                         d.querySelector(".film_card-content .film-info").innerHTML = CardFilmInfo(res);
@@ -159,8 +159,7 @@ export async function F_Film_Info(){
             }else if(e.target.classList.contains("tv")){
                 await Fetch_Request({
                     url:`https://api.themoviedb.org/3/${e.target.classList}/${e.target.dataset.id}?api_key=${locked.xlor12}`,
-                    res:(res)=>{
-                        console.log(res);
+                    res:(res)=>{                        
                         d.querySelector(".film_card-content .film-content").classList.add("film-info");
                         d.querySelector(".film_card-content h2.subtitle").innerHTML = `${res.original_name}`;
                         d.querySelector(".film_card-content .film-info").innerHTML = CardSeriesInfo(res);

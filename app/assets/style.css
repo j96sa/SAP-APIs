@@ -484,38 +484,78 @@ body{
 }
 
 /*FILM-INFO-SECTION*/
-.film_card-content .film-info{
+.film_card-content .film-content.film-info{
+    display: block;
     width: 90%;
     margin: auto;
 }
 .film-info .info-container img{
     width: 100%;
 }
-.info-container .film-info_content p{
+.info-container .film-info_media p{
+    text-align: center;
+    line-height: 1.5;
+}
+.info-container p{
     font-size: 1rem;
 }
-.info-container .film-info_content span{
+.info-container span{
     color: var(--yellow-primary-color);    
 }
+.film-info_content > section{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(25px, 80px));
+    row-gap: 20px;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 15px;
+    background: #fff;
+    color:#000;
+}
+.film-info_content p:last-child{
+    text-align: center;
+    margin-top: 40px;
+}
 @media only screen and (min-width:500px){
-    .info-container .film-info_content p{
+    .info-container p{
         font-size: 1.3rem;
-    }  
+    } 
+    .film-info_content > section{        
+        grid-template-columns: repeat(auto-fill,minmax(150px, 150px));
+        gap: 20px;        
+    } 
 }
 @media only screen and (min-width:1100px){
     .film_card-content .film-info{
         width: 100%;                
     }
+    .film-info_content > section{        
+        margin-top: 0;
+        margin-bottom: 80px;        
+        display: flex; 
+        padding: 15px 10px;                      
+    }
+    .film-info_content > section img{
+        max-width: 500px;
+    }
     .film-info .info-container{
         display: grid;        
-        grid-template-columns: repeat(2, 500px);        
+        grid-template-columns: repeat(2,minmax(500px, 650px));        
+        column-gap: 40px;
         justify-content: space-around;
         text-align: center;
         margin: 50px 0;
-    }
-    .info-container .film-info_content p{
-        font-size: 1.3rem;
+    }    
+    .film-info_content p{
+        font-size: 1.8rem;
     }  
+    .film-info_content > section p{
+        font-size: .6rem;
+    }
+    .film-info_content > p:last-child{        
+        margin-top: 220px;
+    }
 }
 
 
