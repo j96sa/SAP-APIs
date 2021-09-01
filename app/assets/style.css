@@ -311,7 +311,7 @@ body{
         transition: .4s;
     }
     .home-article .home-img img:hover{
-        transform: scale(1.3);                   
+        transform: scale(1.1);                   
     }
 }
 
@@ -329,7 +329,7 @@ body{
 /*INPUT*/
 .film-input div{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 .input-section{
     box-sizing: border-box;
@@ -397,7 +397,18 @@ body{
 
 
 
-/*FILM-SECCION-HOME*/
+/*FILM-SECCION*/
+/*message error validations*/
+.film_card-content > h3{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--red-primary-color);
+}
+.film_card-content > h3 span{
+    color: #fff;
+}
+
+
 .film-content{
     width: 80%;
     margin: auto;
@@ -421,9 +432,8 @@ body{
 }
 .film-content .film-card .card-text div{
     display: flex;
-    width: 88%;
-    margin: auto;
-    justify-content: space-between;
+    flex-direction: column;    
+    text-align: left;    
     color: var(--yellow-primary-color);
 }
 .film-content .film-card .card-text span{
@@ -473,6 +483,81 @@ body{
     }
 }
 
+/*FILM-INFO-SECTION*/
+.film_card-content .film-content.film-info{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+.film-info .info-container img{
+    width: 100%;
+}
+.info-container .film-info_media p{
+    text-align: center;
+    line-height: 1.5;
+}
+.info-container p{
+    font-size: 1rem;
+}
+.info-container span{
+    color: var(--yellow-primary-color);    
+}
+.film-info_content > section{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(25px, 80px));
+    row-gap: 20px;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 15px;
+    background: #fff;
+    color:#000;
+}
+.film-info_content p:last-child{
+    text-align: center;
+    margin-top: 40px;
+}
+@media only screen and (min-width:500px){
+    .info-container p{
+        font-size: 1.3rem;
+    } 
+    .film-info_content > section{        
+        grid-template-columns: repeat(auto-fill,minmax(150px, 150px));
+        gap: 20px;        
+    } 
+}
+@media only screen and (min-width:1100px){
+    .film_card-content .film-info{
+        width: 100%;                
+    }
+    .film-info_content > section{        
+        margin-top: 0;
+        margin-bottom: 80px;        
+        display: flex; 
+        padding: 15px 10px;                      
+    }
+    .film-info_content > section img{
+        max-width: 500px;
+    }
+    .film-info .info-container{
+        display: grid;        
+        grid-template-columns: repeat(2,minmax(500px, 650px));        
+        column-gap: 40px;
+        justify-content: space-around;
+        text-align: center;
+        margin: 50px 0;
+    }    
+    .film-info_content p{
+        font-size: 1.8rem;
+    }  
+    .film-info_content > section p{
+        font-size: .6rem;
+    }
+    .film-info_content > p:last-child{        
+        margin-top: 220px;
+    }
+}
+
 
 
 
@@ -507,6 +592,162 @@ body{
 .actor-card img:hover{    
     transform: translate(4%,-2%)
 }
+
+/*ACTOR INFO*/
+.actor-content.actor-content_info{
+    display: block;
+}
+.actor-content{
+    width: 95%;
+    margin: auto;
+}
+.actor-info img{
+    width: 100%;    
+}
+.actor-info div{
+    font-size: 1rem;
+}
+.actor-info div span{
+    color: var(--yellow-primary-color);
+}
+@media only screen and (min-width:700px) {
+    .actor-info div{
+        font-size: 1.3rem;
+    }     
+}
+@media only screen and (min-width:1100px) {
+    .actor-info{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 800px));
+        gap: 40px;
+        justify-content: space-around;
+        text-align: center;
+    }    
+    .actor-info div p{
+        font-size: 1.8rem;
+    }     
+}
+
+
+
+
+
+
+
+
+
+
+/************ SECTION ARTIST & SONG *****************/
+.film_card-content .artist-content{
+    width: 90%;
+    margin: auto;
+}
+.film_card-content .artist-content .search-error{
+    color: var(--red-primary-color);
+    font-size: 1.2rem;
+}
+.artist-content .search-error span{
+    color:#fff;
+    font-size: 1.4rem;
+}
+.artist-article .artist-img img{
+    width: 100%;
+    object-fit: contain;
+}
+.artist-article .artist-img h3{
+    font-size: 1.3rem;
+}
+.artist-article .artist-info p{
+    font-size: 1rem;
+}
+.artist-article .artist-info span{
+    color: var(--yellow-primary-color);
+}
+.artist-article .artist-bio{
+    font-size: .95rem;
+    line-height: 1.2;
+}
+
+/*albums*/
+.artist-content .artist_albums-all{
+    margin: auto;
+    background: #888; 
+    border-radius: 3px;
+    margin-bottom: 40px; 
+    max-width: 510px;
+    transition: .2s;     
+}
+.artist-content .artist_albums-all .artist-album{
+    display: flex;
+    justify-content: space-between; 
+    border-bottom:1px solid #0006;     
+    align-items: center;    
+    padding: 0 5px;
+}
+.artist-album p{
+    font-size:1rem ;
+}
+.artist-album:hover{
+    background: #999;    
+}
+.artist-content > h3{
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.3rem;        
+}
+.artist_albums-all .artist-album span{
+    color: var(--yellow-primary-color);
+}
+.artist-album img{
+    height: 25px;
+    cursor: pointer;
+}
+
+/*RESPONSIVE DEL SINGERS&SONGS HOME BREAK(1150px)*/
+@media only screen and (min-width:1150px){
+    .film_card-content .artist-content .search-error{        
+        font-size: 1.7rem;
+    }
+    .artist-content .search-error span{        
+        font-size: 1.9rem;
+    }
+    .artist-article .artist-img h3{
+        font-size: 1.8rem;
+    }
+    .artist-article .artist-info p{
+        font-size: 1.5rem;
+    }
+    .artist-article .artist-bio{
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+
+    .artist-content > h3{
+        font-size: 1.8rem;
+    }
+    .artist-content .artist_albums-all{
+        max-width: 750px;
+    }
+    .artist_albums-all .artist-albums{
+        font-size: 1.2rem;
+    }
+}
+/*ALBUM SONGS LIST*/
+.artist_albums-all .album-tracks{
+    border-bottom: 1px solid #0006;
+}
+.album-tracks .track{
+    display: flex;
+    border-bottom: .5px solid #0004;
+    justify-content: space-around;
+    padding: 0 5px;
+}
+.album-tracks .track span{
+    color: var(--red-primary-color);
+}
+
+
+
 
 
 

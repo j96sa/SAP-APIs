@@ -1,5 +1,6 @@
 import { Com_Film } from "./Com_Film.js";
 import { Com_Home } from "./Com_Home.js";
+import { Com_Songs } from "./Com_Songs.js";
 
 export function  Router() {
     const d = document,
@@ -16,10 +17,11 @@ export function  Router() {
 
         case "#/songs":
             d.getElementById("main").innerHTML = "songs";
+            Com_Songs();
         break;
 
         case "#/films":
-            Com_Film();
+            Com_Film();            
         break;
     
         case "#/art":

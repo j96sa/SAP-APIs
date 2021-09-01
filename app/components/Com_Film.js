@@ -1,11 +1,12 @@
 import { F_Section_Actor } from "./F_Section-Actor.js";
-import { F_FilmSearch, F_Section_Film } from "./F_Section-Film.js";
+import { F_FilmSearch, F_Film_Info, F_Section_Film } from "./F_Section-Film.js";
 
 export function Com_Film(){
     const d = document;    
             
     F_Section_Film();
-    F_FilmSearch();            
+    F_FilmSearch();
+    F_Film_Info();           
 
     d.addEventListener("click",e=>{        
         if(e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-film")){                        
