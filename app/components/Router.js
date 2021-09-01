@@ -1,3 +1,4 @@
+import { Com_Art } from "./Com_Art.js";
 import { Com_Film } from "./Com_Film.js";
 import { Com_Home } from "./Com_Home.js";
 import { Com_Songs } from "./Com_Songs.js";
@@ -15,8 +16,7 @@ export function  Router() {
             Com_Home();
         break;
 
-        case "#/songs":
-            d.getElementById("main").innerHTML = "songs";
+        case "#/songs":            
             Com_Songs();
         break;
 
@@ -26,6 +26,7 @@ export function  Router() {
     
         case "#/art":
             d.getElementById("main").innerHTML = "art";
+            Com_Art();
         break;
     }
 };
