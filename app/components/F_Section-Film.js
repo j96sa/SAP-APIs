@@ -89,64 +89,62 @@ export async function F_FilmSearch(){
     
     //CARGA DE LA SECCION DE SERIES Y PELICULAS
     async function searchRequest(value){  
-        d.querySelector(".film-content").classList.remove("film-info");
-        d.querySelector(".film-content").innerHTML = "";
-        d.querySelector(".film_card-content h2.subtitle").textContent = "Results";
-        d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());                 
-        
-        //PELICULAS
-        await Fetch_Request({
-            url:`${Film+Name}${value}`,
-            res:(res)=>{                
-                if (res.results.length === 0){                                              
-                    let h3 = d.createElement("h3");
-                    h3.classList = "error-verification";
-                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${value}"</span>.`;
-                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
-                    setTimeout(() => {
-                        d.querySelector(".film_card-content > h3").remove();
-                    }, 3000);
-                }else{
-                    let html = "";                
-                    res.results.forEach(e=>html += CardFilm(e));    
-                    d.querySelector(".film-content").innerHTML += html;                    
-                };                                
-            }
-        });
-        
-        //SERIES
-        await Fetch_Request({
-            url:`${Series+Name}${value}`,
-            res:(res)=>{                
-                if (res.results.length === 0){                                              
-                    let h3 = d.createElement("h3");
-                    h3.classList = "error-verification";
-                    h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${value}"</span>.`;
-                    d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
-                    setTimeout(() => {
-                        d.querySelector(".film_card-content > h3").remove();
-                    }, 3000);
-                }else{
-                    let html = "";                
-                    res.results.forEach(e=>html += CardSeriesSearch(e));    
-                    d.querySelector(".film-content").innerHTML += html;                    
-                };                                
-            }
-        });
+        if(!value || value === ""){           
+           return false;
+        }else{
+            d.querySelector(".film-content").classList.remove("film-info");
+            d.querySelector(".film-content").innerHTML = "";
+            d.querySelector(".film_card-content h2.subtitle").textContent = "Results";
+            d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());                 
+            
+            //PELICULAS
+            await Fetch_Request({
+                url:`${Film+Name}${value}`,
+                res:(res)=>{                
+                    if (res.results.length === 0){                                              
+                        let h3 = d.createElement("h3");
+                        h3.classList = "error-verification";
+                        h3.innerHTML = `Lo sentimos; No se encontraron coincidencias con: <span>"${value}"</span>.`;
+                        d.querySelector(".film_card-content").insertAdjacentElement("beforeend",h3);
+                        setTimeout(() => {
+                            d.querySelector(".film_card-content > h3").remove();
+                        }, 3000);
+                    }else{
+                        let html = "";                
+                        res.results.forEach(e=>html += CardFilm(e));    
+                        d.querySelector(".film-content").innerHTML += html;                    
+                    };                                
+                }
+            });
 
-        d.querySelector(".film_card-content .loader-section").remove();
-        d.querySelectorAll(".film-content figure").forEach(e=>{
-            e.style.background = `#${Math.round(Math.random()*999)}`;
-        });
+            //SERIES
+            await Fetch_Request({
+                url:`${Series+Name}${value}`,
+                res:(res)=>{                
+                    if (res.results.length === 0){                                                                      
+                        return false;
+                    }else{
+                        let html = "";                
+                        res.results.forEach(e=>html += CardSeriesSearch(e));    
+                        d.querySelector(".film-content").innerHTML += html;                    
+                    };                                
+                }
+            });
+
+            d.querySelector(".film_card-content .loader-section").remove();
+            d.querySelectorAll(".film-content figure").forEach(e=>{
+                e.style.background = `#${Math.round(Math.random()*999)}`;
+            });            
+        };
     };
 };
 
 export async function F_Film_Info(){
 
-    d.addEventListener("click",async e=>{
+    d.addEventListener("click",async e=>{        
         if(e.target.matches(".film-card img")){            
-            d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());
-
+            //d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());        
+        
             if (e.target.classList.contains("movie")){
                 await Fetch_Request({
                     url:`https://api.themoviedb.org/3/${e.target.classList}/${e.target.dataset.id}?api_key=${locked.xlor12}`,
@@ -165,13 +163,11 @@ export async function F_Film_Info(){
                         d.querySelector(".film_card-content .film-info").innerHTML = CardSeriesInfo(res);
                     }
                 });
-            }else if(e.target.classList.contains("person")){
-
             }else{
-                return false;
+                return false
             }
-
-            d.querySelector(".film_card-content .loader-section").remove();
+            
+            //d.querySelector(".film_card-content .loader-section").remove();            
         };
     });
 
