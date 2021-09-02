@@ -4,7 +4,7 @@ import api from "../helpers/API_art.js"
 import {F_ComInput} from "./F_ComInput.js"
 import { ArtCardGallery, ArtDepartments } from "./CardArt.js";
 import {S_CompInput} from "./S_ComInput.js";
-import {LoaderElement} from "./Loader.js";
+import {Loader, LoaderElement} from "./Loader.js";
 
 export function Com_Art(){
     d.getElementById("main").innerHTML = F_ComInput();
@@ -47,6 +47,7 @@ export function Com_Art(){
     });
 
     async function getArtFromDept(){
+        d.querySelector(".art-content").innerHTML = "";
         const $input = d.querySelector(".input-section input"),
         $dataMuseum = d.querySelector(".film_card-content h2.subtitle").dataset.museum,        
         $fragment = d.createDocumentFragment();
@@ -55,25 +56,48 @@ export function Com_Art(){
             url:`${api.ObjDpt_Dpt}${$dataMuseum}${api.ObjDpt_Obj}${$input.value}`,
             res:(res)=>{
                 //console.log(res);
+                let obsID = res.objectIDs;
+                console.log(obsID);
 
-                res.objectIDs.forEach(e=>{
-                    Fetch_Request({
-                        url:`${api.ObjInfo}${e}`,
-                        res:(obj)=>{                            
-                            console.log(obj);
-                            let sect = d.createElement("section");
-                            sect.classList = "art-card";
-                            let img = d.createElement("img");
-                            img.src = e.primaryImageSmall;
-                            let p = d.createElement("p");
-                            p.innerText = e.title;
-                            sect.appendChild(p)
-                            sect.appendChild(img)
-                            $fragment.appendChild(sect);
-                        }
-                    });
-                    d.querySelector(".film_card-content .art-content").appendChild($fragment);
-                });                
+                let idIterator = 0;
+                for (let i=idIterator;i<idIterator+50;i++){
+                    
+                };
+                
+
+
+                if (res.total === 0){
+                    d.querySelector(".art-content").innerHTML = `<p class="art_error-message">No results found for ${$input.value} in ${$dataMuseum}</p>`;
+                    setTimeout(() => d.querySelector(".art-content").innerHTML="", 3500);
+                }else{
+                    d.querySelector(".art-content").innerHTML = Loader();
+
+                    /*res.objectIDs.forEach(e=>{
+                        let sect = d.createElement("section");
+                        sect.classList = "art-card";
+                        let img = d.createElement("img");
+                        let p = d.createElement("p");
+                        
+                        Fetch_Request({
+                            url:`${api.ObjInfo}${e}`,
+                            res:(obj)=>{                            
+                                //console.log(obj);
+                                img.dataset.id = obj.objectID;
+                                img.src = obj.primaryImageSmall;
+                                p.innerText = obj.title;
+                                sect.appendChild(img)
+                                sect.appendChild(p)
+                                obj=>objHtml=ArtCardGallery(obj);
+                            }
+                        });                    
+                        
+                        $fragment.appendChild(sect);
+                        d.querySelector(".film_card-content .art-content").appendChild($fragment);
+                    });*/                
+
+                    d.querySelector(".art-content .loader-section").remove();
+                };
+
             }
         });
     };
