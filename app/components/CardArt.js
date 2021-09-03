@@ -1,6 +1,6 @@
 export function ArtDepartments(e){
     return `
-        <a href="#/department_${e.displayName}"><section id="${e.departmentId}">${e.displayName}</section></a>
+        <a href="#/department"><section id="${e.departmentId}">${e.displayName}</section></a>
     `;
 };
 

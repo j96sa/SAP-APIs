@@ -24,8 +24,7 @@ export function  Router() {
             Com_Film();            
         break;
     
-        case "#/art":
-            d.getElementById("main").innerHTML = "art";
+        case "#/art":            
             Com_Art();
         break;
     }
