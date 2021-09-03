@@ -764,10 +764,10 @@ body{
     color: #fff;
 }
 .art-content{
+    width: 95%;
     margin: 70px 0;
 }
-.art-content > a section{
-    width: 95%;
+.art-content > a section{    
     margin: auto;    
     text-align: center;
     padding: 10px 0;
@@ -781,6 +781,10 @@ body{
     }
 }
 @media only screen and (min-width:1100px){
+    /*LOADER*/
+    .film_card-content > .loader-section img{
+        width: 110px;
+    }
     .art-content{
         width: 60%;
         margin: auto;
@@ -799,8 +803,7 @@ body{
 
 
 /*BUSQUEDA POR MUSEO INDIVIDUAL*/
-.art-content{
-    width: 95%;
+.art-content{    
     margin: auto;
     text-align: center;
 }

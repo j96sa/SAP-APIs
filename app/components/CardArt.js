@@ -4,11 +4,11 @@ export function ArtDepartments(e){
     `;
 };
 
-export function ArtCardGallery(e){
+/*export function ArtCardGallery(e){
     return `
         <section class="art-card">
-            <img src="${e.primaryImageSmall}">
+            <img src="${primaryImageSmall ?e.primaryImageSmall :"./app/assets/no-img.png"}">
             <p>${e.title}</p>
         </section>  
     `;
-};
+};*/
