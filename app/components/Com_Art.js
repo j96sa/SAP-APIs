@@ -5,6 +5,7 @@ import {F_ComInput} from "./F_ComInput.js"
 import { ArtDepartments } from "./CardArt.js";
 import {Loader, LoaderElement} from "./Loader.js";
 import { departmentData, departmentSection } from "./A_Section-Department.js";
+import { artResults } from "./A_Section-Search.js";
 
 export function Com_Art(){
     d.getElementById("main").innerHTML = F_ComInput();
@@ -28,11 +29,43 @@ export function Com_Art(){
     });
 
     departmentSection();
-    departmentData();    
+    departmentData();
+    artResults();    
 };
 
     
+//funcion para insertar los datos
+export async function insertData(arr,idIterator){                
+    const $fragment = d.createDocumentFragment();
+    d.querySelector(".art-content").classList.add("art-results");               
 
+    for (let i=idIterator;i<idIterator+20 && i<arr.length;i++){
+        let sect = d.createElement("section");
+        sect.classList = "art-card";
+        let img = d.createElement("img");
+        let p = d.createElement("p");            
+        
+        if (i >= arr.length){
+            false;
+        }else{                
+            Fetch_Request({
+                url:`${api.ObjInfo}${arr[i]}`,
+                res:(obj)=>{                            
+                    //console.log(obj);
+                    img.dataset.id = obj.objectID;
+                    img.src = obj.primaryImageSmall ?obj.primaryImageSmall :"./app/assets/no-img.png";
+                    img.alt = obj.title;
+                    p.innerText = obj.title;
+                    sect.appendChild(img)
+                    sect.appendChild(p)                        
+                }
+            });
+        };                        
+        $fragment.appendChild(sect);            
+    };
+    d.querySelector(".film_card-content .art-content").appendChild($fragment);        
+    d.querySelector(".film_card-content > .loader-section").style.display = "none";        
+};
       
     
     

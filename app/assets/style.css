@@ -807,6 +807,9 @@ body{
     margin: auto;
     text-align: center;
 }
+.art-card{
+    margin: auto;
+}
 .art-content .art-card{
     margin-bottom: 80px;
 }
@@ -826,6 +829,21 @@ body{
 .art_error-message{
     font-size: 1rem;
     color:var(--red-primary-color);
+}
+@media only screen and (min-width:401px){
+    .art-content.dept-on{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+        justify-content: center;
+    }
+    .art-content.art-results{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+        justify-content: center;
+    }
+
 }
 
 
