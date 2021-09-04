@@ -1,41 +1,15 @@
 const d = document;
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_art.js"
-import {F_ComInput} from "./F_ComInput.js"
-import { ArtDepartments } from "./CardArt.js";
-import {Loader, LoaderElement} from "./Loader.js";
+import api from "../helpers/API_art.js";
 import { departmentData, departmentSection } from "./A_Section-Department.js";
-import { artResults } from "./A_Section-Search.js";
+import { A_Section_Search } from "./A_Section-Search.js";
+import { A_Section_Artist } from "./A_Section_Artist.js";
+import { Comp_Art_Home } from "./A_ComArtHome.js";
 
 window.addEventListener("hashchange",e=>{
     if (location.hash === "#/art") location.reload();
 });
 
-export function Com_Art(){
-    d.getElementById("main").innerHTML = F_ComInput();
-    d.querySelector(".input-section input").placeholder = "Search all museums...";
-    d.getElementById("switch-button").innerHTML = "Find an artist";
-    d.querySelector(".switch-container").classList.replace("switched-film","switched-art");
-    d.querySelector(".film_card-content > h2").innerText = "Find a work of art in one of the following departments";
-    d.querySelector(".film_card-content .film-content").classList = "art-content";
-            
-    d.querySelector(".film_card-content > h2.subtitle").insertAdjacentElement("afterend",LoaderElement())
-    Fetch_Request({
-        url:api.Departments,
-        res:(res)=>{            
-            let html = "";
-            res.departments.forEach(e=>html += ArtDepartments(e));
-            d.querySelector(".art-content").innerHTML = html;             
-            d.querySelector(".film_card-content > .loader-section").style.display = "none"; 
-        }
-    });
-
-    departmentSection();
-    departmentData();
-    artResults();    
-};
-
-    
 //funcion para insertar los datos
 export async function insertData(arr,idIterator){                
     const $fragment = d.createDocumentFragment();
@@ -70,6 +44,27 @@ export async function insertData(arr,idIterator){
     d.querySelector(".film_card-content .art-content").appendChild($fragment);        
     d.querySelector(".film_card-content > .loader-section").style.display = "none";        
 };
+
+export function Com_Art(){
+    Comp_Art_Home();
+    departmentSection();
+    departmentData();
+    A_Section_Search();
+    
+    
+    d.addEventListener("click",e=>{
+        if (e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-art")){
+            //e.stopImmediatePropagation();
+            A_Section_Artist();
+        }else if(e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-artist")){
+            Comp_Art_Home();            
+            A_Section_Search();
+        };
+    });
+};
+
+    
+
       
     
     
