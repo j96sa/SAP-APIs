@@ -7,6 +7,10 @@ import {Loader, LoaderElement} from "./Loader.js";
 import { departmentData, departmentSection } from "./A_Section-Department.js";
 import { artResults } from "./A_Section-Search.js";
 
+window.addEventListener("hashchange",e=>{
+    if (location.hash === "#/art") location.reload();
+});
+
 export function Com_Art(){
     d.getElementById("main").innerHTML = F_ComInput();
     d.querySelector(".input-section input").placeholder = "Search all museums...";

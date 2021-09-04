@@ -1,6 +1,6 @@
 import { Fetch_Request } from "../helpers/Fetch_Request.js";
 import api from "../helpers/API_art.js";
-import { Com_Art,/* insertData */} from "./Com_Art.js";
+import { Com_Art, insertData } from "./Com_Art.js";
 
 const d = document;
 
@@ -14,7 +14,7 @@ export function artResults(){
 
     d.addEventListener("click",e=>{ 
         if(e.target === $buttonSearch && d.querySelector(".film-input .switch-container").classList.contains("switched-art") && $inputValue.value !== ""){
-            //e.stopImmediatePropagation();
+            e.stopImmediatePropagation();
             idIterator = 0;
             getDataIds(); 
         };       
@@ -22,22 +22,17 @@ export function artResults(){
     d.addEventListener("keydown",e=>{
         if(e.key === "Enter" && e.target === d.querySelector(".input-section input") && d.querySelector(".film-input .switch-container").classList.contains("switched-art")){
             location.hash = "#/art-results";
-            //e.stopImmediatePropagation();
+            e.stopImmediatePropagation();
             idIterator = 0;
             getDataIds(); 
         };
     });
 
-    /*window.addEventListener("hashchange",e=>{
-        e.stopImmediatePropagation();        
-        obsID = null;
-        console.log(obsID);
-    });*/
-
     async function getDataIds(){ 
         d.querySelector(".film_card-content > .loader-section").style.display = "block";                   
         d.querySelector(".art-content").innerHTML = "";
         d.querySelector(".film_card-content h2.subtitle").innerText = `Search result for: "${$inputValue.value}"`
+        
         Fetch_Request({
             url:`${api.Search}${$inputValue.value}`,
             res:(res)=>{
@@ -48,97 +43,20 @@ export function artResults(){
                     d.querySelector(".art-content").innerHTML = `<p class="art_error-message">No results found for ${$inputValue.value} in ${$deprtName}</p>`;
                     setTimeout(() => d.querySelector(".art-content").innerHTML="", 3500);
                     d.querySelector(".film_card-content > .loader-section").style.display = "none"; 
-                }else{                                         
-                    insertData(obsID);
-                    console.log(obsID);
-                    d.addEventListener("scroll",e=>{
-                        e.stopImmediatePropagation();       
-                        scroll(obsID);
-                    });
+                }else{                                                             
+                    insertData(obsID,idIterator);                    
                 };
             }
         });        
     };
-    
-    const scroll = (arr)=>{        
-        console.log(arr);
-        let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-        if (location.hash === "#/art-results" && (scrollTop + clientHeight + 10) > scrollHeight){
-            idIterator += 20;         
-            console.log(arr);                           
-            insertData(arr);            
-        };    
-    };
 
     //INFINITE SCROLL
-    /*d.addEventListener("scroll",e=>{ 
+    d.addEventListener("scroll",e=>{ 
         e.stopImmediatePropagation();       
         let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
         if (location.hash === "#/art-results" && (scrollTop + clientHeight + 10) > scrollHeight){
-            idIterator += 20;         
-            console.log(obsID);                           
-            insertData(obsID);            
+            idIterator += 20;                        
+            insertData(obsID,idIterator);            
         };
-    });*/
-    
-
-    //funcion para insertar los datos
-    async function insertData(arr){                
-        const $fragment = d.createDocumentFragment(); 
-        d.querySelector(".art-content").classList.add("art-results");       
-
-        for (let i=idIterator;i<idIterator+20 && i<arr.length;i++){
-            let sect = d.createElement("section");
-            sect.classList = "art-card";
-            let img = d.createElement("img");
-            let p = d.createElement("p");            
-            
-            if (i >= arr.length){
-                false;
-            }else{                
-                Fetch_Request({
-                    url:`${api.ObjInfo}${arr[i]}`,
-                    res:(obj)=>{                            
-                        //console.log(obj);
-                        img.dataset.id = obj.objectID;
-                        img.src = obj.primaryImageSmall ?obj.primaryImageSmall :"./app/assets/no-img.png";
-                        img.alt = obj.title;
-                        p.innerText = obj.title;
-                        sect.appendChild(img)
-                        sect.appendChild(p)                        
-                    }
-                });
-            };                        
-            $fragment.appendChild(sect);            
-        };
-        d.querySelector(".film_card-content .art-content").appendChild($fragment);        
-        d.querySelector(".film_card-content > .loader-section").style.display = "none";                  
-    };
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
 };

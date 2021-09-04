@@ -42,10 +42,7 @@ export function departmentData(){
             idIterator = 0;
             getArtFromDept();
         };
-    });
-    window.addEventListener("hashchange",e=>{
-        idIterator = 0;
-    });
+    });    
 
     //funcion para obtener los datos de la busqueda
     async function getArtFromDept(){                
@@ -73,68 +70,14 @@ export function departmentData(){
         });
     };        
     
-
     //INFINITE SCROLL
     d.addEventListener("scroll",e=>{        
         if (location.hash === "#/department"){
             let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
             if ((scrollTop + clientHeight + 10) > scrollHeight && d.querySelector(".art-content").classList.contains("dept-on")){
-                idIterator += 20;            
-                console.log("departm");    
+                idIterator += 20;                                
                 insertData(obsID,idIterator);
             };
         };
     });
-
-
-    //funcion para insertar los datos
-    /*async function insertData(arr){                
-        const $fragment = d.createDocumentFragment();        
-
-        for (let i=idIterator;i<idIterator+20 && i<arr.length;i++){
-            let sect = d.createElement("section");
-            sect.classList = "art-card";
-            let img = d.createElement("img");
-            let p = d.createElement("p");            
-            
-            if (i >= arr.length){
-                false;
-            }else{                
-                Fetch_Request({
-                    url:`${api.ObjInfo}${arr[i]}`,
-                    res:(obj)=>{                            
-                        //console.log(obj);
-                        img.dataset.id = obj.objectID;
-                        img.src = obj.primaryImageSmall ?obj.primaryImageSmall :"./app/assets/no-img.png";
-                        img.alt = obj.title;
-                        p.innerText = obj.title;
-                        sect.appendChild(img)
-                        sect.appendChild(p)                        
-                    }
-                });
-            };                        
-            $fragment.appendChild(sect);            
-        };
-        d.querySelector(".film_card-content .art-content").appendChild($fragment);        
-        d.querySelector(".film_card-content > .loader-section").style.display = "none";        
-    };*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };

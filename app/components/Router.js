@@ -25,7 +25,7 @@ export function  Router() {
         break;
     
         case "#/art":   
-            Com_Art();
+            Com_Art();            
         break;
     }
 };
