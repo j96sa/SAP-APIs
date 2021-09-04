@@ -34,7 +34,7 @@ export function A_Section_Artist(){
     async function getDataIds(){ 
         d.querySelector(".film_card-content > .loader-section").style.display = "block";                   
         d.querySelector(".art-content").innerHTML = "";
-        d.querySelector(".film_card-content h2.subtitle").innerText = `Results of works of: "${$input.value}"`;
+        d.querySelector(".film_card-content h2.subtitle").innerText = `Results of works of: "${$input.value}"`
         
         Fetch_Request({
             url:`${api.ArtName}${$input.value}`,

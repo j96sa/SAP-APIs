@@ -5,6 +5,7 @@ import { departmentData, departmentSection } from "./A_Section-Department.js";
 import { A_Section_Search } from "./A_Section-Search.js";
 import { A_Section_Artist } from "./A_Section_Artist.js";
 import { Comp_Art_Home } from "./A_ComArtHome.js";
+import { Obj_Info } from "./A_Section_ObjInfo.js";
 
 window.addEventListener("hashchange",e=>{
     if (location.hash === "#/art") location.reload();
@@ -21,7 +22,8 @@ export async function insertData(arr,idIterator){
         let sect = d.createElement("section");
         sect.classList = "art-card";
         let img = d.createElement("img");
-        let p = d.createElement("p");            
+        let p = d.createElement("p"); 
+        let a = d.createElement("a");           
 
         if (i >= arr.length){
             false;
@@ -30,12 +32,14 @@ export async function insertData(arr,idIterator){
                 url:`${api.ObjInfo}${arr[i]}`,
                 res:(obj)=>{                            
                     //console.log(obj);
+                    a.href = "#/art-info";
                     img.dataset.id = obj.objectID;
                     img.src = obj.primaryImageSmall ?obj.primaryImageSmall :"./app/assets/no-img.png";
                     img.alt = obj.title;
                     p.innerText = obj.title;
-                    sect.appendChild(img)
-                    sect.appendChild(p)                        
+                    a.appendChild(img);
+                    sect.appendChild(a);
+                    sect.appendChild(p);                       
                 }
             });
         };                        
@@ -50,11 +54,10 @@ export function Com_Art(){
     departmentSection();
     departmentData();
     A_Section_Search();
-    
+    Obj_Info();
     
     d.addEventListener("click",e=>{
-        if (e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-art")){
-            //e.stopImmediatePropagation();
+        if (e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-art")){            
             A_Section_Artist();
         }else if(e.target === d.getElementById("switch-button") && d.querySelector(".switch-container").classList.contains("switched-artist")){
             Comp_Art_Home();            
