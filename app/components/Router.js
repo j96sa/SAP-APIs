@@ -24,7 +24,7 @@ export function  Router() {
             Com_Film();            
         break;
     
-        case "#/art":            
+        case "#/art":   
             Com_Art();
         break;
     }

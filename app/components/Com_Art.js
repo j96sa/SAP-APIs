@@ -14,9 +14,7 @@ export function Com_Art(){
     d.querySelector(".switch-container").classList.replace("switched-film","switched-art");
     d.querySelector(".film_card-content > h2").innerText = "Find a work of art in one of the following departments";
     d.querySelector(".film_card-content .film-content").classList = "art-content";
-
-    
-        
+            
     d.querySelector(".film_card-content > h2.subtitle").insertAdjacentElement("afterend",LoaderElement())
     Fetch_Request({
         url:api.Departments,
@@ -38,13 +36,15 @@ export function Com_Art(){
 export async function insertData(arr,idIterator){                
     const $fragment = d.createDocumentFragment();
     d.querySelector(".art-content").classList.add("art-results");               
-
+    
+    //console.log(arr);    
+    
     for (let i=idIterator;i<idIterator+20 && i<arr.length;i++){
         let sect = d.createElement("section");
         sect.classList = "art-card";
         let img = d.createElement("img");
         let p = d.createElement("p");            
-        
+
         if (i >= arr.length){
             false;
         }else{                

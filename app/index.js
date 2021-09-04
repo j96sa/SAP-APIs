@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded",e=>{
 });
 
 
-window.addEventListener("hashchange",e=>{
+window.addEventListener("hashchange",e=>{    
     App();    
 })
