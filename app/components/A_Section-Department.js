@@ -47,7 +47,6 @@ export function departmentData(){
     //funcion para obtener los datos de la busqueda
     async function getArtFromDept(){                
         d.querySelector(".art-content").innerHTML = "";        
-        d.querySelector(".art-content").classList.add("dept-on");        
         d.querySelector(".film_card-content > .loader-section").style.display = "block"; 
         const $input = d.querySelector(".input-section input"),
         $dataDeprt = d.querySelector(".film_card-content h2.subtitle").id,
@@ -65,6 +64,7 @@ export function departmentData(){
                     d.querySelector(".film_card-content > .loader-section").style.display = "none"; 
                 }else{                                         
                     insertData(obsID,idIterator);                                                                                                                                       
+                    d.querySelector(".art-content").classList.add("dept-on");        
                 };
             }
         });
@@ -74,7 +74,7 @@ export function departmentData(){
     d.addEventListener("scroll",e=>{        
         if (location.hash === "#/department"){
             let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-            if ((scrollTop + clientHeight + 10) > scrollHeight && d.querySelector(".art-content").classList.contains("dept-on")){
+            if ((scrollTop + clientHeight + 10) > scrollHeight && (!d.querySelector(".art-content").classList.contains("art-content_info")) && d.querySelector(".art-content").classList.contains("dept-on")){
                 idIterator += 20;                                
                 insertData(obsID,idIterator);
             };

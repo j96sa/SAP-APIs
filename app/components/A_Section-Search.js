@@ -55,7 +55,7 @@ export function A_Section_Search(){
     //INFINITE SCROLL
     d.addEventListener("scroll",e=>{          
         let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-        if (location.hash === "#/art-results" && (scrollTop + clientHeight + 10) > scrollHeight){
+        if (location.hash === "#/art-results" && (!d.querySelector(".art-content").classList.contains("art-content_info")) && (scrollTop + clientHeight + 10) > scrollHeight){
             idIterator += 20;                        
             insertData(obsID,idIterator);            
         };

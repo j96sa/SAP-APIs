@@ -23,7 +23,7 @@ export async function insertData(arr,idIterator){
         sect.classList = "art-card";
         let img = d.createElement("img");
         let p = d.createElement("p"); 
-        let a = d.createElement("a");           
+        //let a = d.createElement("a");           
 
         if (i >= arr.length){
             false;
@@ -32,13 +32,14 @@ export async function insertData(arr,idIterator){
                 url:`${api.ObjInfo}${arr[i]}`,
                 res:(obj)=>{                            
                     //console.log(obj);
-                    a.href = "#/art-info";
+                    //a.href = "#/art-info";
                     img.dataset.id = obj.objectID;
                     img.src = obj.primaryImageSmall ?obj.primaryImageSmall :"./app/assets/no-img.png";
                     img.alt = obj.title;
                     p.innerText = obj.title;
-                    a.appendChild(img);
-                    sect.appendChild(a);
+                    //a.appendChild(img);
+                    //sect.appendChild(a);
+                    sect.appendChild(img);
                     sect.appendChild(p);                       
                 }
             });
