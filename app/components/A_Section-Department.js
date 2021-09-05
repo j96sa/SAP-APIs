@@ -48,6 +48,7 @@ export function departmentData(){
     async function getArtFromDept(){                
         d.querySelector(".art-content").innerHTML = "";        
         d.querySelector(".film_card-content > .loader-section").style.display = "block"; 
+        //d.querySelector(".art-content").classList.add("dept-on");        
         const $input = d.querySelector(".input-section input"),
         $dataDeprt = d.querySelector(".film_card-content h2.subtitle").id,
         $deprtName = d.querySelector(".film_card-content h2.subtitle").dataset.museum;
@@ -59,22 +60,22 @@ export function departmentData(){
                 obsID = res.objectIDs;                                               
                 
                 if (res.total === 0){
-                    d.querySelector(".art-content").innerHTML = `<p class="art_error-message">No results found for ${$input.value} in ${$deprtName}</p>`;
-                    setTimeout(() => d.querySelector(".art-content").innerHTML="", 3500);
+                    d.querySelector(".art-content").innerHTML = ``;                    
+                    d.querySelector(".film_card-content > h2.subtitle").innerHTML = `<p class="art_error-message">No results found for <span>${$input.value}</span> in <span>${$deprtName}</span></p>`;
+                    setTimeout(() => d.querySelector(".film_card-content > h2.subtitle").innerHTML="", 3500);
                     d.querySelector(".film_card-content > .loader-section").style.display = "none"; 
                 }else{                                         
-                    insertData(obsID,idIterator);                                                                                                                                       
-                    d.querySelector(".art-content").classList.add("dept-on");        
+                    insertData(obsID,idIterator);                                                                                                                                                           
                 };
             }
         });
     };        
     
     //INFINITE SCROLL
-    d.addEventListener("scroll",e=>{        
-        if (location.hash === "#/department"){
+    d.addEventListener("scroll",e=>{  
+        if (location.hash === "#/department"){                 
             let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-            if ((scrollTop + clientHeight + 10) > scrollHeight && (!d.querySelector(".art-content").classList.contains("art-content_info")) && d.querySelector(".art-content").classList.contains("dept-on")){
+            if ((scrollTop + clientHeight + 10) > scrollHeight && (!d.querySelector(".art-content").classList.contains("art-content_info"))){
                 idIterator += 20;                                
                 insertData(obsID,idIterator);
             };

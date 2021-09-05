@@ -42,8 +42,9 @@ export function A_Section_Artist(){
                 obsID = res.objectIDs;                                
 
                 if (res.total === 0){
-                    d.querySelector(".art-content").innerHTML = `<p class="art_error-message">No results found for ${$input.value}</p>`;
-                    setTimeout(() => d.querySelector(".art-content").innerHTML="", 3500);
+                    d.querySelector(".art-content").innerHTML = ``;                    
+                    d.querySelector(".film_card-content > h2.subtitle").innerHTML = `<p class="art_error-message">No results found for <span>${$input.value}</span>`;
+                    setTimeout(() => d.querySelector(".film_card-content > h2.subtitle").innerHTML="", 3500);
                     d.querySelector(".film_card-content > .loader-section").style.display = "none"; 
                 }else{                                                             
                     insertData(obsID,idIterator);                    

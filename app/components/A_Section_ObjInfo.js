@@ -13,7 +13,7 @@ export function Obj_Info(){
             Fetch_Request({
                 url:`${api.ObjInfo}${e.target.dataset.id}`,
                 res:(res)=>{
-                    console.log(res);
+                    //console.log(res);
                     
                     d.querySelector(".film_card-content > h2.subtitle").innerText = `${res.title}`;
                     d.querySelector(".art-content").innerHTML= `

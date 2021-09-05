@@ -14,7 +14,6 @@ window.addEventListener("hashchange",e=>{
 //funcion para insertar los datos
 export async function insertData(arr,idIterator){                
     const $fragment = d.createDocumentFragment();
-    d.querySelector(".art-content").classList.add("art-results");               
     
     //console.log(arr);    
     
@@ -23,7 +22,14 @@ export async function insertData(arr,idIterator){
         sect.classList = "art-card";
         let img = d.createElement("img");
         let p = d.createElement("p"); 
-        //let a = d.createElement("a");           
+        d.querySelector(".art-content").classList.add("art-results");               
+        //let a = d.createElement("a");
+        
+        if(d.querySelector(".art-content").classList.contains("art-content_info")){
+            d.querySelector(".art-content").classList.remove("art-content_info");
+        }else{
+            false;
+        };
 
         if (i >= arr.length){
             false;

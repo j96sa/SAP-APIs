@@ -765,7 +765,7 @@ body{
 }
 .art-content{
     width: 95%;
-    margin: 70px 0;
+    margin: 70px 0;    
 }
 .art-content > a section{    
     margin: auto;    
@@ -806,6 +806,7 @@ body{
 .art-content{    
     margin: auto;
     text-align: center;
+    margin-bottom: 80px;
 }
 .art-card{
     margin: auto;
@@ -829,6 +830,10 @@ body{
 .art_error-message{
     font-size: 1rem;
     color:var(--red-primary-color);
+}
+.art_error-message span{
+    font-size: 1rem;
+    color:var(--yellow-primary-color);
 }
 @media only screen and (min-width:401px){
     .art-content.dept-on{
@@ -883,6 +888,10 @@ body{
     }
     .art-info section p{
         font-size: 1.4rem;
+    }
+    /*error message*/
+    .art_error-message{
+        font-size: 1.3rem;        
     }
 }
 
