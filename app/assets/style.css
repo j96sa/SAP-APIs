@@ -9,7 +9,7 @@ body{
     margin: 0;
     font-size: .8rem;
     font-family: 'Montserrat', sans-serif;
-    user-select:none;
+    user-select:none;    
 }
 
 /*GENERAL STYLES*/
@@ -31,9 +31,29 @@ body{
 .loader-section img{
     width: 40px;
 }
-
-
-
+/*SCROLL BUTTON*/
+#scroll-top{  
+    display: none;  
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer; 
+}
+#scroll-top img{
+    border-radius: 50%;   
+    background-color: var(--yellow-primary-color);
+    width: 35px;
+    padding: 5px;    
+}
+@media only screen and (min-width:900px) {
+    #scroll-top{  
+        right: 50px;
+        bottom: 50px;        
+    }
+    #scroll-top img{        
+        width: 50px;        
+    }
+}
 
 
 
@@ -65,13 +85,14 @@ body{
     display: flex;
     width:100%;
     justify-content: space-between;
-    padding: 2px 4px;
+    padding: 2px 0;
     margin-top: 12px;
 }
 .header_links a{
     text-decoration: none;
     color: inherit;
-    cursor: pointer;       
+    cursor: pointer;
+    margin: 0 8px;       
 }
 .header_links a:hover{
     color: var(--yellow-primary-color);
