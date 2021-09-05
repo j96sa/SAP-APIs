@@ -757,6 +757,157 @@ body{
 
 
 
+/***           ART-SECTION                *****/
+/*HOME*/
+.art-content a{
+    text-decoration: none;
+    color: #fff;
+}
+.art-content{
+    width: 95%;
+    margin: 70px 0;    
+}
+.art-content > a section{    
+    margin: auto;    
+    text-align: center;
+    padding: 10px 0;
+    background: #888;
+    border-bottom: 1px solid #0003;
+}
+@media only screen and (min-width:650px){
+    .art-content section {
+        font-size: 1.3rem;
+        width: 90%;
+    }
+}
+@media only screen and (min-width:1100px){
+    /*LOADER*/
+    .film_card-content > .loader-section img{
+        width: 110px;
+    }
+    .art-content{
+        width: 60%;
+        margin: auto;
+    }
+    .art-content > a section{
+        font-size: 1.5rem;        
+        cursor: pointer;
+        transition: .2s;
+    }
+    .art-content > a section:hover{
+        background: #999;
+    }
+}
+
+
+
+
+/*BUSQUEDA POR MUSEO INDIVIDUAL*/
+.art-content{    
+    margin: auto;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.art-card{
+    margin: auto;
+}
+.art-content .art-card{
+    margin-bottom: 80px;
+}
+.art-card p{
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+.art-content .art-card img{
+    transition: .2s;
+    width: 100%;
+    cursor: pointer;
+}
+.art-card img:hover{
+    transform: scale(1.1);
+}
+/*mensaje de error*/
+.art_error-message{
+    font-size: 1rem;
+    color:var(--red-primary-color);
+}
+.art_error-message span{
+    font-size: 1rem;
+    color:var(--yellow-primary-color);
+}
+@media only screen and (min-width:401px){
+    .art-content.dept-on{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+        justify-content: center;
+    }
+    .art-content.art-results{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(80px, 300px));
+        justify-content: center;
+    }
+}
+
+/*OBJECTS INFO*/
+.art-info img{
+    width: 100%;
+}
+.art-info span{
+    color: var(--yellow-primary-color);
+}
+.art-info p{
+    font-size: 1.2rem;
+}
+@media only screen and (min-width:500px) {
+    .art-content.art-content_info{
+        display: block;
+        margin-bottom: 100px;
+    }
+    .art-info{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 60px;
+        width: 80%;
+    }
+    .art-info section p{
+        font-size: 1.4rem;
+    }
+}
+@media only screen and (min-width:1100px) {    
+    .art-info{
+        flex-direction: row;
+        margin: auto;
+        margin-top: 60px;
+        max-width: 970px;
+    }
+    .art-info section{
+        margin-left: 50px;
+    }
+    .art-info section p{
+        font-size: 1.4rem;
+    }
+    /*error message*/
+    .art_error-message{
+        font-size: 1.3rem;        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -24,6 +24,7 @@ export async function F_Section_Film(){
     d.querySelectorAll(".film-content figure").forEach(e=>{
         e.style.background = `#${Math.round(Math.random()*999)}`;
     });
+        
              
     //INFINITE SCROLL
     let page = 1;
