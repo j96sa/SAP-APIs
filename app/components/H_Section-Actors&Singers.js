@@ -10,7 +10,7 @@ export function H_SectionActorsSingers_Com() {
 export function H_SectionActorsSingers(){
     const d = document,
     $fragment = d.createDocumentFragment(),
-    IMG = ["./app/assets/actor.jpg","./app/assets/actor1.jpg","./app/assets/actor3.jpg","./app/assets/actor2.jpg"];
+    IMG = ["https://i1.wp.com/revistadiners.com.co/wp-content/uploads/2019/06/michael_jackson_1200x800.jpg?fit=1200%2C800&ssl=1&resize=1280%2C720","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Matthew_McConaughey_2019_%2848648344772%29.jpg/250px-Matthew_McConaughey_2019_%2848648344772%29.jpg","https://m.media-amazon.com/images/I/41iGW7dsb7L._AC_.jpg","https://pyxis.nymag.com/v1/imgs/b46/bf9/e4dc0519c559430f2c667f842d3249739d-beyonce-1.rvertical.w1200.jpg"];
     
     IMG.forEach(e=>{
       let img = d.createElement("img");

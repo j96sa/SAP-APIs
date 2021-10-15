@@ -11,7 +11,7 @@ export function H_Section_Art_Com(){
 export function H_Section_Art(){
     const d = document,
     $fragment = d.createDocumentFragment(),
-    arr = ["./app/assets/art.jpg","./app/assets/art2.jpg","./app/assets/art3.jpg","./app/assets/art4.jpg"];
+    arr = ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg","https://imagenes.elpais.com/resizer/J5UxnqYpkVyHSsLkPX2ZWIDoKsk=/1960x0/arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/GGQLFCFKS2WQLHYHJIRZQJH4FI.jpg","https://3.bp.blogspot.com/-n1aZFQN3_OU/WEcVxxHlgOI/AAAAAAAACF4/z_1qV-Qvq90IZpmf9iYiT_Z2bywX70DTACLcB/s1600/387970_3000.jpg","https://culturaimpaciente.com/wp-content/uploads/2019/12/C4V8YNGWIAEDEPU-1024x797.jpg"];
 
     arr.forEach(e=>{
         let img = d.createElement("img");
