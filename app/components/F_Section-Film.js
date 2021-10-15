@@ -44,8 +44,8 @@ export async function F_Section_Film(){
                 };
             });
 
-            let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-            if(((scrollTop + clientHeight + 10) > scrollHeight) && d.querySelector(".film_card-content h2.subtitle").innerText === "Popular Films"){
+            let {scrollHeight,scrollTop,clientHeight} = d.documentElement;            
+            if(((scrollTop + clientHeight + 80) > scrollHeight) && d.querySelector(".film_card-content h2.subtitle").innerText === "Popular Films"){
                 page++;
                 d.querySelector(".film_card-content").insertAdjacentElement("beforeend",LoaderElement());        
                 InfiniteScroll();
