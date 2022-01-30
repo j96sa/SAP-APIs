@@ -1,4 +1,4 @@
-import api from "../helpers/API_tmdb.js";
+import api from "../../helpers/API_tmdb.js";
 const {ImgSrc} = api;
 export function CardFilm(e){
     const {id,title,poster_path,release_date,vote_average} = e,

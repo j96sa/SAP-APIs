@@ -1,7 +1,7 @@
-import { Com_Art } from "./Com_Art.js";
-import { Com_Film } from "./Com_Film.js";
-import { Com_Home } from "./Com_Home.js";
-import { Com_Songs } from "./Com_Songs.js";
+import { Com_Art } from "./art/Com_Art.js";
+import { Com_Film } from "./movies/Com_Film.js";
+import { Com_Home } from "./home/Com_Home.js";
+import { Com_Songs } from "./singers/Com_Songs.js";
 
 export function  Router() {
     const d = document,

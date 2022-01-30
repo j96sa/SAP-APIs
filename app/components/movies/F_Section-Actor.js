@@ -1,9 +1,9 @@
 import { F_ComInput } from "./F_ComInput.js";
-import api from "../helpers/API_tmdb.js";
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
+import api from "../../helpers/API_tmdb.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
 import { CardActor, CardActorInfo } from "./CardActor.js";
-import { LoaderElement } from "./Loader.js";
-import lowerCom from "../assets/debug.js"
+import { LoaderElement } from "../../assets/Loader.js";
+import lowerCom from "../../assets/debug.js"
 
 export async function F_Section_Actor(){
     const d = document;

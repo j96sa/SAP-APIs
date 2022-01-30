@@ -1,6 +1,6 @@
 const d = document;
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_art.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import api from "../../helpers/API_art.js";
 import { departmentData, departmentSection } from "./A_Section-Department.js";
 import { A_Section_Search } from "./A_Section-Search.js";
 import { A_Section_Artist } from "./A_Section_Artist.js";

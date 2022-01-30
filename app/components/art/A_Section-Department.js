@@ -1,8 +1,8 @@
 const d = document;
-import {S_CompInput} from "./S_ComInput.js";
-import {Loader, LoaderElement} from "./Loader.js";
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_art.js";
+import {S_CompInput} from "../singers/S_ComInput.js";
+import {Loader, LoaderElement} from "../../assets/Loader.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import api from "../../helpers/API_art.js";
 import { insertData } from "./Com_Art.js";
 
 

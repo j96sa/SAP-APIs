@@ -1,9 +1,9 @@
 const d = document;
-import api from "../helpers/API_art.js";
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import {F_ComInput} from "./F_ComInput.js";
+import api from "../../helpers/API_art.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import {F_ComInput} from "../movies/F_ComInput.js";
 import { ArtDepartments } from "./CardArt.js";
-import { LoaderElement} from "./Loader.js";
+import { LoaderElement} from "../../assets/Loader.js";
 
 export function Comp_Art_Home(){
     d.getElementById("main").innerHTML = F_ComInput();

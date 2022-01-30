@@ -1,6 +1,6 @@
 import {Fetch_Request} from "../helpers/Fetch_Request.js";
 //import media from "../helpers/API_movies.js" ;
-import {Loader} from "./Loader.js";
+import {Loader} from "../assets/Loader.js";
 import api from "../helpers/API_tmdb.js";
 
 export function H_Section_Film_Com() {

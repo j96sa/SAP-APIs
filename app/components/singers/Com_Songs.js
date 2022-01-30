@@ -1,8 +1,8 @@
 import { S_CompInput } from "./S_ComInput.js";
-import api from "../helpers/API_audio.js";
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
+import api from "../../helpers/API_audio.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
 import { CardDisc, CardSing, CardSongs } from "./CardSing.js";
-import {LoaderElement} from "./Loader.js";
+import {LoaderElement} from "../../assets/Loader.js";
 
 export function Com_Songs(){
     const d = document;

@@ -1,8 +1,8 @@
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_tmdb.js";
-import locked from "../assets/debug.js"
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import api from "../../helpers/API_tmdb.js";
+import locked from "../../assets/debug.js"
 import { CardFilm, CardFilmInfo, CardSeriesInfo, CardSeriesSearch } from "./CardFilm.js";
-import {LoaderElement} from "./Loader.js";
+import {LoaderElement} from "../../assets/Loader.js";
 import { F_ComInput } from "./F_ComInput.js";
 const d = document;
 const {Film,Series,Actor,PopularFilms,ImgSrc,Name,Pages} = api;

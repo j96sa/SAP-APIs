@@ -1,4 +1,4 @@
-import api from "../helpers/API_tmdb.js" 
+import api from "../../helpers/API_tmdb.js" 
 
 export function CardActor(e){
     const {known_for_department,profile_path,name,known_for,id} = e;
