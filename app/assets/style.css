@@ -269,10 +269,17 @@ body{
 
 
     /*HOME*/
+    .home-article .home-img{
+        min-width: fit-content;
+    }
     .home-article .home-img section{        
         grid-template-columns: 200px 200px;
         gap: 12px;
+        justify-content:center ;        
     }
+
+
+
     /*film*/
     .article-film .film-text h1{
         text-align: left;
