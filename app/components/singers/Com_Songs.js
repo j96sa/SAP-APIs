@@ -6,6 +6,7 @@ import {LoaderElement} from "../../assets/Loader.js";
 
 export function Com_Songs(){
     const d = document;
+    /* INSERCION DEL FORMULARIO PARA INSERTAR LOS NOMBRES DE ARTISTAS, MAS INSECRION DE TODA LA ESTRUCTURA DEL COMPONENTE */
     document.getElementById("main").innerHTML = S_CompInput();
 
     const $submitButton = d.querySelector(".input-section img"),
@@ -33,8 +34,7 @@ export function Com_Songs(){
 
         await Fetch_Request({
             url:`${api.Artist}${name}`,
-            res:(res)=>{  
-                //console.log(res);              
+            res:(res)=>{                                
                 if (res.artists === null){
                     console.log("Lo sentimos no existen coincidencias");
                     d.querySelector(".film_card-content .artist-content").innerHTML = `<h2 class="search-error">Lo sentimos; No se han encontrado coincidencias con: <span>"${name}"</span>.</h2>`;
