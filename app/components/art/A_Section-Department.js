@@ -47,16 +47,14 @@ export function departmentData(){
     //funcion para obtener los datos de la busqueda
     async function getArtFromDept(){                
         d.querySelector(".art-content").innerHTML = "";        
-        d.querySelector(".film_card-content > .loader-section").style.display = "block"; 
-        //d.querySelector(".art-content").classList.add("dept-on");        
+        d.querySelector(".film_card-content > .loader-section").style.display = "block";                
         const $input = d.querySelector(".input-section input"),
         $dataDeprt = d.querySelector(".film_card-content h2.subtitle").id,
         $deprtName = d.querySelector(".film_card-content h2.subtitle").dataset.museum;
         
         Fetch_Request({
             url:`${api.ObjDpt_Dpt}${$dataDeprt}${api.ObjDpt_Obj}${$input.value}`,
-            res:(res)=>{
-                //console.log(res);                
+            res:(res)=>{                               
                 obsID = res.objectIDs;                                               
                 
                 if (res.total === 0){

@@ -143,9 +143,7 @@ export async function F_FilmSearch(){
 export async function F_Film_Info(){
 
     d.addEventListener("click",async e=>{        
-        if(e.target.matches(".film-card img")){            
-            //d.querySelector(".film-content").insertAdjacentElement("beforebegin",LoaderElement());        
-        
+        if(e.target.matches(".film-card img")){                        
             if (e.target.classList.contains("movie")){
                 await Fetch_Request({
                     url:`https://api.themoviedb.org/3/${e.target.classList}/${e.target.dataset.id}?api_key=${locked.xlor12}`,
@@ -166,9 +164,7 @@ export async function F_Film_Info(){
                 });
             }else{
                 return false
-            }
-            
-            //d.querySelector(".film_card-content .loader-section").remove();            
+            }            
         };
     });
 
