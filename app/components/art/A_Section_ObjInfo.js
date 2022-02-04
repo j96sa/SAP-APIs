@@ -1,5 +1,5 @@
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
-import api from "../helpers/API_art.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import api from "../../helpers/API_art.js";
 
 const d = document;
 

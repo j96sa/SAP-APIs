@@ -1,8 +1,8 @@
-import {Fetch_Request} from "../helpers/Fetch_Request.js";
-//import media from "../helpers/API_movies.js" ;
-import {Loader} from "./Loader.js";
-import api from "../helpers/API_tmdb.js";
+import {Fetch_Request} from "../../helpers/Fetch_Request.js";
+import {Loader} from "../../assets/Loader.js";
+import api from "../../helpers/API_tmdb.js";
 
+/* COMPONENTE VISUAL */
 export function H_Section_Film_Com() {
     return `
         <article id="article-film" class="article-film home-article">
@@ -17,45 +17,14 @@ export function H_Section_Film_Com() {
     `;
 };
 
-//*********OLD API
-/*export async function H_Section_Film() {
-    const $fragment = document.createDocumentFragment();
-    document.querySelector(".article-film").innerHTML += Loader();
-
-    await Fetch_Request({
-        url:`${media.MediaPopular}`,
-        res:(json)=>{
-            console.log(json);            
-            let arr = [];
-
-            for(let i = 4; i > 0; i--){                
-                arr.push(json.items[i]);
-            };            
-            
-            arr.forEach(e=>{
-                let img = document.createElement("img");
-                img.src = e.image;
-                img.alt = e.fullTitle;
-                $fragment.appendChild(img);
-            });
-
-            let $section = document.createElement("section");
-            $section.appendChild($fragment);
-            document.querySelector(".film-img").appendChild($section);
-        }  
-    });
-
-    document.querySelector(".loader-section").style.display = "none";              
-};*/
-
+/* ESTA FUNCION HACE UN PEDIDO A LA API E INSERTA EN EL COMPONENTE ANTERIOR LAS 4 IMAGENES DE MANERA DINAMICA */
 export async function H_Section_Film() {
     const $fragment = document.createDocumentFragment();
     document.querySelector(".article-film").innerHTML += Loader();
-
+    
     await Fetch_Request({
         url:`${api.PopularFilms}`,
-        res:(json)=>{
-            //console.log(json);            
+        res:(json)=>{                        
             let arr = [];
 
             for(let i = 4; i > 0; i--){                

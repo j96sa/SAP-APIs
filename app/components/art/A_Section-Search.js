@@ -1,30 +1,29 @@
-import { Fetch_Request } from "../helpers/Fetch_Request.js";
+import { Fetch_Request } from "../../helpers/Fetch_Request.js";
+import api from "../../helpers/API_art.js";
 import { insertData } from "./Com_Art.js";
-import api from "../helpers/API_art.js";
 
 const d = document;
 
-export function A_Section_Artist(){        
-    d.querySelector(".switch-container").classList.replace("switched-art","switched-artist");            
-    d.querySelector(".input-section input").placeholder = "Search the works of...";
-    d.querySelector(".switch-container button").innerText = "Find a work";
-    d.querySelector(".input-section button").innerHTML = `<a href="#/artist-results"><img src="./app/assets/search-button.png"></a>`;
+export function A_Section_Search(){
+    d.querySelector(".switch-container").classList.replace("switched-artist","switched-art");            
+    d.querySelector(".switch-container button").innerText = "Find an artist";
+    d.querySelector(".input-section button").innerHTML = `<a href="#/art-results"><img src="./app/assets/search-button.png"></a>`;    
     const $buttonSearch = d.querySelector(".input-section button img"),
     $input = d.querySelector(".input-section input");
-
+    
     let obsID,
     idIterator = 0;
 
-    d.addEventListener("click",e=>{        
-        if (e.target === $buttonSearch && d.querySelector(".film-input .switch-container").classList.contains("switched-artist") && $input.value !== ""){
+    d.addEventListener("click",e=>{                
+        if(e.target === $buttonSearch && d.querySelector(".film-input .switch-container").classList.contains("switched-art") && $input.value !== ""){
             e.stopImmediatePropagation();
             idIterator = 0;
-            getDataIds();
-        };
-    });
+            getDataIds(); 
+        };       
+    }); 
     d.addEventListener("keydown",e=>{
-        if(e.key === "Enter" && e.target === d.querySelector(".input-section input") && d.querySelector(".film-input .switch-container").classList.contains("switched-artist")){
-            location.hash = "#/artist-results";
+        if(e.key === "Enter" && e.target === d.querySelector(".input-section input") && d.querySelector(".film-input .switch-container").classList.contains("switched-art")){
+            location.hash = "#/art-results";
             e.stopImmediatePropagation();
             idIterator = 0;
             getDataIds(); 
@@ -34,11 +33,12 @@ export function A_Section_Artist(){
     async function getDataIds(){ 
         d.querySelector(".film_card-content > .loader-section").style.display = "block";                   
         d.querySelector(".art-content").innerHTML = "";
-        d.querySelector(".film_card-content h2.subtitle").innerText = `Results of works of: "${$input.value}"`
+        d.querySelector(".film_card-content h2.subtitle").innerText = `Search result for: "${$input.value}"`
         
         Fetch_Request({
-            url:`${api.ArtName}${$input.value}`,
-            res:(res)=>{                                
+            url:`${api.Search}${$input.value}`,
+            res:(res)=>{
+                //console.log(res);                
                 obsID = res.objectIDs;                                
 
                 if (res.total === 0){
@@ -54,25 +54,11 @@ export function A_Section_Artist(){
     };
 
     //INFINITE SCROLL
-    d.addEventListener("scroll",e=>{                 
+    d.addEventListener("scroll",e=>{          
         let {scrollHeight,scrollTop,clientHeight} = d.documentElement;
-        if (location.hash === "#/artist-results" && (!d.querySelector(".art-content").classList.contains("art-content_info")) && (scrollTop + clientHeight + 10) > scrollHeight){
+        if (location.hash === "#/art-results" && (!d.querySelector(".art-content").classList.contains("art-content_info")) && (scrollTop + clientHeight + 10) > scrollHeight){
             idIterator += 20;                        
             insertData(obsID,idIterator);            
         };
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
